@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Task_Master.Data;
 
 namespace Task_Master
 {
@@ -16,6 +18,30 @@ namespace Task_Master
             InitializeComponent();
             SetupUI();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            int boardId = 1;
+            LoadLists(boardId);
+        }
+
+        private void LoadLists(int boardId)
+        {
+            DataTable lists = DatabaseHelper.GetLists(boardId);
+            boardPanel.Controls.Clear();
+
+            foreach (DataRow row in lists.Rows)
+            {
+                int listId = Convert.ToInt32(row["Id"]);
+                string listName = row["Name"].ToString();
+                Panel listPanel = CreateListPanel(listName);
+                boardPanel.Controls.Add(listPanel);
+            }
+
+            boardPanel.Controls.Add(addListButton);
+        }
+
+
         private void SetupUI()
         {
             this.Text = "Task Master";
@@ -98,11 +124,6 @@ namespace Task_Master
             panel.Controls.Add(deleteButton);
 
             return panel;
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
