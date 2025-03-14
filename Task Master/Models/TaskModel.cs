@@ -1,0 +1,11 @@
+﻿namespace Task_Master.Models
+{
+    public class TaskModel
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int list_id { get; set; }
+        public bool is_active { get; set; }
+    }
+}
