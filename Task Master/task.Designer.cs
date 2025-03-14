@@ -1,13 +1,13 @@
 ﻿namespace Task_Master
 {
-    partial class Form1
+    partial class task
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtBoardId;
-        private System.Windows.Forms.TextBox txtCreatedAt;
+        private System.Windows.Forms.TextBox txtUserId;
+        private System.Windows.Forms.TextBox txtTaskId;
+        private System.Windows.Forms.TextBox txtDueDate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
@@ -25,9 +25,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtId = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtBoardId = new System.Windows.Forms.TextBox();
-            this.txtCreatedAt = new System.Windows.Forms.TextBox();
+            this.txtUserId = new System.Windows.Forms.TextBox();
+            this.txtTaskId = new System.Windows.Forms.TextBox();
+            this.txtDueDate = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -48,23 +48,23 @@
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 1;
 
-            // txtName
-            this.txtName.Location = new System.Drawing.Point(118, 328);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 2;
+            // txtUserId
+            this.txtUserId.Location = new System.Drawing.Point(118, 328);
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(100, 20);
+            this.txtUserId.TabIndex = 2;
 
-            // txtBoardId
-            this.txtBoardId.Location = new System.Drawing.Point(224, 328);
-            this.txtBoardId.Name = "txtBoardId";
-            this.txtBoardId.Size = new System.Drawing.Size(100, 20);
-            this.txtBoardId.TabIndex = 3;
+            // txtTaskId
+            this.txtTaskId.Location = new System.Drawing.Point(224, 328);
+            this.txtTaskId.Name = "txtTaskId";
+            this.txtTaskId.Size = new System.Drawing.Size(100, 20);
+            this.txtTaskId.TabIndex = 3;
 
-            // txtCreatedAt
-            this.txtCreatedAt.Location = new System.Drawing.Point(330, 328);
-            this.txtCreatedAt.Name = "txtCreatedAt";
-            this.txtCreatedAt.Size = new System.Drawing.Size(100, 20);
-            this.txtCreatedAt.TabIndex = 4;
+            // txtDueDate
+            this.txtDueDate.Location = new System.Drawing.Point(330, 328);
+            this.txtDueDate.Name = "txtDueDate";
+            this.txtDueDate.Size = new System.Drawing.Size(100, 20);
+            this.txtDueDate.TabIndex = 4;
 
             // btnAdd
             this.btnAdd.Location = new System.Drawing.Point(436, 326);
@@ -93,20 +93,20 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
 
-            // Form1
+            // task
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtCreatedAt);
-            this.Controls.Add(this.txtBoardId);
-            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtDueDate);
+            this.Controls.Add(this.txtTaskId);
+            this.Controls.Add(this.txtUserId);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "task";
+            this.Text = "task";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -6,18 +6,18 @@ using System.Xml.Linq;
 
 namespace Task_Master
 {
-    public partial class Form1 : Form
+    public partial class board : Form
     {
         // Chuỗi kết nối đến SQL Server
         private string connectionString = "Data Source=ADMIN-PC\\SQLEXPRESS;Initial Catalog=Quản lý công việc;Integrated Security=True";
 
-        public Form1()
+        public board()
         {
             InitializeComponent();
-            this.Load += new EventHandler(Form1_Load);
+            this.Load += new EventHandler(board_Load);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void board_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -29,7 +29,7 @@ namespace Task_Master
                 try
                 {
                     conn.Open();
-                    string query = "SELECT * FROM dbo.list";
+                    string query = "SELECT * FROM dbo.board";
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conn);
                     DataTable dataTable = new DataTable();
                     dataAdapter.Fill(dataTable);
@@ -49,11 +49,11 @@ namespace Task_Master
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO dbo.list (name, board_id, createdAt) VALUES (@Name, @BoardId, @CreatedAt)";
+                    string query = "INSERT INTO dbo.board (name, description, createdAt) VALUES (@Value1, @Value2, @Value3)";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@BoardId", txtBoardId.Text);
-                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Parse(txtCreatedAt.Text));
+                    cmd.Parameters.AddWithValue("@Value1", txtName.Text);
+                    cmd.Parameters.AddWithValue("@Value2", txtDescription.Text);
+                    cmd.Parameters.AddWithValue("@Value3", DateTime.Parse(txtCreatedAt.Text));
                     cmd.ExecuteNonQuery();
                     LoadData();
                 }
@@ -71,12 +71,12 @@ namespace Task_Master
                 try
                 {
                     conn.Open();
-                    string query = "UPDATE dbo.list SET name = @Name, board_id = @BoardId, createdAt = @CreatedAt WHERE id = @Id";
+                    string query = "UPDATE dbo.board SET name = @Value1, description = @Value2, createdAt = @Value3 WHERE id = @Id";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@Id", txtId.Text);
-                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@BoardId", txtBoardId.Text);
-                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Parse(txtCreatedAt.Text));
+                    cmd.Parameters.AddWithValue("@Value1", txtName.Text);
+                    cmd.Parameters.AddWithValue("@Value2", txtDescription.Text);
+                    cmd.Parameters.AddWithValue("@Value3", DateTime.Parse(txtCreatedAt.Text));
                     cmd.ExecuteNonQuery();
                     LoadData();
                 }
@@ -94,7 +94,7 @@ namespace Task_Master
                 try
                 {
                     conn.Open();
-                    string query = "DELETE FROM dbo.list WHERE id = @Id";
+                    string query = "DELETE FROM dbo.board WHERE id = @Id";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@Id", txtId.Text);
                     cmd.ExecuteNonQuery();
@@ -114,7 +114,7 @@ namespace Task_Master
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 txtId.Text = row.Cells["id"].Value.ToString();
                 txtName.Text = row.Cells["name"].Value.ToString();
-                txtBoardId.Text = row.Cells["board_id"].Value.ToString();
+                txtDescription.Text = row.Cells["description"].Value.ToString();
                 txtCreatedAt.Text = row.Cells["createdAt"].Value.ToString();
             }
         }
