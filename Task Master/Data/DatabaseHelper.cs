@@ -7,7 +7,7 @@ namespace Task_Master.Data
     public static class DatabaseHelper
     {
         private static readonly string connectionString =
-            "Server=DESKTOP-70CU9IO;Database=Quản lý công việc;Integrated Security=True;";
+            "Server=.\\SQLEXPRESS;Database=Quản lý công việc;Integrated Security=True;";
 
         public static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
