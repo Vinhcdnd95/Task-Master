@@ -7,25 +7,38 @@ namespace Task_Master.Data
     public static class DatabaseHelper
     {
         private static readonly string connectionString =
-            "Server=.\\SQLEXPRESS;Database=Quản lý công việc;Integrated Security=True;";
+            "Server=.//SQLEXPRESS;Database=Quản lý công việc;Integrated Security=True;";
 
         public static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    if (parameters != null)
-                        cmd.Parameters.AddRange(parameters);
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        return dt;
+                        if (parameters != null)
+                            cmd.Parameters.AddRange(parameters);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+
+                            if (dt.Rows.Count == 0)
+                            {
+                                Console.WriteLine("Không có dữ liệu trả về từ truy vấn!");
+                            }
+                            return dt;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi truy vấn SQL: {ex.Message}");
+                return null;
             }
         }
 
