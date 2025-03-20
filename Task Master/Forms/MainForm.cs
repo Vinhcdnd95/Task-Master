@@ -41,7 +41,6 @@ namespace Task_Master
             boardPanel.Controls.Add(addListButton);
         }
 
-
         private void SetupUI()
         {
             this.Text = "Task Master";
@@ -84,6 +83,7 @@ namespace Task_Master
                 Padding = new Padding(5)
             };
 
+            // Tiêu đề danh sách
             TextBox titleBox = new TextBox()
             {
                 Text = title,
@@ -94,6 +94,7 @@ namespace Task_Master
             };
             panel.Controls.Add(titleBox);
 
+            // Nút xóa danh sách
             Button deleteButton = new Button()
             {
                 Text = "X",
@@ -104,7 +105,6 @@ namespace Task_Master
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
-
             deleteButton.Click += (s, e) =>
             {
                 DialogResult result = MessageBox.Show(
@@ -120,8 +120,42 @@ namespace Task_Master
                     listPanels.Remove(panel);
                 }
             };
-
             panel.Controls.Add(deleteButton);
+
+            // FlowLayoutPanel để chứa các task
+            FlowLayoutPanel taskPanel = new FlowLayoutPanel()
+            {
+                Location = new Point(10, 40),
+                Width = 220,
+                Height = 300,
+                AutoScroll = true,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false
+            };
+            panel.Controls.Add(taskPanel);
+
+            // Nút thêm task
+            Button addTaskButton = new Button()
+            {
+                Text = "+ Add Task",
+                Width = 100,
+                Height = 30,
+                Location = new Point(10, 350),
+                BackColor = Color.Green,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+            addTaskButton.Click += (s, e) =>
+            {
+                TextBox newTask = new TextBox()
+                {
+                    Text = "New Task",
+                    Width = 200,
+                    Margin = new Padding(5)
+                };
+                taskPanel.Controls.Add(newTask);
+            };
+            panel.Controls.Add(addTaskButton);
 
             return panel;
         }
