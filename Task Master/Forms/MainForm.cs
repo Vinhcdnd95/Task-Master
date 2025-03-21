@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -12,8 +11,9 @@ namespace Task_Master
     {
         private FlowLayoutPanel boardPanel;
         private Button addListButton;
-        private List<Panel> listPanels = new List<Panel>();
         private int boardId = 1;
+        private readonly Color[] listColors = { Color.LightBlue, Color.LightGreen, Color.LightCoral, Color.LightPink, Color.LightSalmon, Color.LightSkyBlue, Color.LightSteelBlue, Color.LightGoldenrodYellow };
+        private int colorIndex = 0;
 
         public MainForm()
         {
@@ -29,15 +29,12 @@ namespace Task_Master
         private void LoadLists(int boardId)
         {
             DataTable list = DatabaseHelper.GetLists(boardId);
-
             if (list == null)
             {
                 MessageBox.Show("Lỗi khi lấy danh sách từ cơ sở dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             boardPanel.Controls.Clear();
-
             foreach (DataRow row in list.Rows)
             {
                 int listId = Convert.ToInt32(row["id"]);
@@ -45,7 +42,6 @@ namespace Task_Master
                 Panel listPanel = CreateListPanel(listName, listId);
                 boardPanel.Controls.Add(listPanel);
             }
-
             boardPanel.Controls.Add(addListButton);
         }
 
@@ -59,8 +55,11 @@ namespace Task_Master
                 Dock = DockStyle.Fill,
                 AutoScroll = true,
                 FlowDirection = FlowDirection.LeftToRight,
-                WrapContents = false
+                WrapContents = false,
+                AllowDrop = true
             };
+            boardPanel.DragEnter += BoardPanel_DragEnter;
+            boardPanel.DragDrop += BoardPanel_DragDrop;
             this.Controls.Add(boardPanel);
 
             addListButton = new Button()
@@ -89,7 +88,6 @@ namespace Task_Master
                 Panel listPanel = CreateListPanel(newListName, newListId);
                 boardPanel.Controls.Add(listPanel);
                 boardPanel.Controls.SetChildIndex(addListButton, boardPanel.Controls.Count - 1);
-                listPanels.Add(listPanel);
             }
             else
             {
@@ -103,10 +101,11 @@ namespace Task_Master
             {
                 Width = 240,
                 Height = 400,
-                BackColor = Color.LightGray,
+                BackColor = listColors[colorIndex % listColors.Length],
                 Padding = new Padding(5),
                 Tag = listId
             };
+            colorIndex++;
 
             TextBox titleBox = new TextBox()
             {
@@ -116,9 +115,7 @@ namespace Task_Master
                 TextAlign = HorizontalAlignment.Center,
                 Location = new Point(10, 5)
             };
-
-            titleBox.Leave += (s, e) =>
-            {
+            titleBox.Leave += (s, e) => {
                 string updateQuery = "UPDATE list SET Name = @name WHERE id = @id";
                 SqlParameter[] updateParams = {
                     new SqlParameter("@name", titleBox.Text),
@@ -126,7 +123,6 @@ namespace Task_Master
                 };
                 DatabaseHelper.ExecuteNonQuery(updateQuery, updateParams);
             };
-
             panel.Controls.Add(titleBox);
 
             Button deleteButton = new Button()
@@ -139,35 +135,59 @@ namespace Task_Master
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
+            deleteButton.Click += (s, e) => DeleteList(panel, listId);
+            panel.Controls.Add(deleteButton);
+            EnableDragAndDrop(panel);
+            return panel;
+        }
 
-            deleteButton.Click += (s, e) =>
-            {
-                DialogResult result = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa danh sách này?",
-                    "Xác nhận xóa",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (result == DialogResult.Yes)
+        private void EnableDragAndDrop(Panel listPanel)
+        {
+            listPanel.MouseDown += (s, e) => {
+                if (e.Button == MouseButtons.Left)
                 {
-                    string deleteQuery = "DELETE FROM list WHERE id = @id";
-                    SqlParameter[] deleteParams = { new SqlParameter("@id", listId) };
-
-                    if (DatabaseHelper.ExecuteNonQuery(deleteQuery, deleteParams) > 0)
-                    {
-                        boardPanel.Controls.Remove(panel);
-                        listPanels.Remove(panel);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Lỗi khi xóa danh sách!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    listPanel.DoDragDrop(listPanel, DragDropEffects.Move);
                 }
             };
+        }
 
-            panel.Controls.Add(deleteButton);
-            return panel;
+        private void BoardPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(Panel)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+        }
+
+        private void BoardPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            Panel draggedPanel = (Panel)e.Data.GetData(typeof(Panel));
+            Point dropPoint = boardPanel.PointToClient(new Point(e.X, e.Y));
+            int insertIndex = boardPanel.Controls.GetChildIndex(boardPanel.GetChildAtPoint(dropPoint));
+
+            if (boardPanel.Controls[insertIndex] == addListButton)
+            {
+                insertIndex--;
+            }
+
+            if (insertIndex >= 0)
+            {
+                boardPanel.Controls.SetChildIndex(draggedPanel, insertIndex);
+            }
+        }
+
+        private void DeleteList(Panel panel, int listId)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa danh sách này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                string deleteQuery = "DELETE FROM list WHERE id = @id";
+                SqlParameter[] deleteParams = { new SqlParameter("@id", listId) };
+                if (DatabaseHelper.ExecuteNonQuery(deleteQuery, deleteParams) > 0)
+                {
+                    boardPanel.Controls.Remove(panel);
+                }
+            }
         }
     }
 }
