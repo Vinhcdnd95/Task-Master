@@ -149,8 +149,9 @@ namespace Task_Master
                     int taskId = Convert.ToInt32(row["id"]);
                     string taskNameText = row["name"] != DBNull.Value ? row["name"].ToString() : "";
                     string taskDescriptionText = row["description"] != DBNull.Value ? row["description"].ToString() : "";
+                    bool isActived = row["is_actived"] != DBNull.Value ? Convert.ToBoolean(row["is_actived"]) : false;
 
-                    Panel taskContainer = CreateTaskPanel(taskId, taskNameText, taskDescriptionText);
+                    Panel taskContainer = CreateTaskPanel(taskId, taskNameText, taskDescriptionText, isActived);
                     taskPanel.Controls.Add(taskContainer);
                 }
             }
@@ -192,12 +193,19 @@ namespace Task_Master
                     MaxLength = 200
                 };
 
+                CheckBox isActiveCheckbox = new CheckBox()
+                {
+                    Text = "Active",
+                    Location = new Point(165, 5),
+                    Checked = true // Default new task to active
+                };
+
                 Button saveButton = new Button()
                 {
                     Text = "Save",
                     Width = 35,
                     Height = 20,
-                    Location = new Point(165, 10),
+                    Location = new Point(165, 30),
                     BackColor = Color.Blue,
                     ForeColor = Color.White,
                     FlatStyle = FlatStyle.Flat
@@ -208,13 +216,13 @@ namespace Task_Master
                     int taskId = (int)taskContainer.Tag;
                     if (taskId == -1) // Chỉ thêm mới
                     {
-                        taskId = DatabaseHelper.InsertTask(listId, taskName.Text, taskDescription.Text, true);
+                        taskId = DatabaseHelper.InsertTask(listId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked);
                         taskContainer.Tag = taskId;
                         MessageBox.Show("Task added: " + taskName.Text, "Success",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Tạo task mới và thêm vào taskPanel
-                        Panel newTaskContainer = CreateTaskPanel(taskId, taskName.Text, taskDescription.Text);
+                        Panel newTaskContainer = CreateTaskPanel(taskId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked);
                         taskPanel.Controls.Add(newTaskContainer);
 
                         // Xóa nội dung trong các TextBox
@@ -225,6 +233,7 @@ namespace Task_Master
 
                 taskContainer.Controls.Add(taskName);
                 taskContainer.Controls.Add(taskDescription);
+                taskContainer.Controls.Add(isActiveCheckbox);
                 taskContainer.Controls.Add(saveButton);
                 taskPanel.Controls.Add(taskContainer);
             };
@@ -233,7 +242,7 @@ namespace Task_Master
             return panel;
         }
 
-        private Panel CreateTaskPanel(int taskId, string taskNameText, string taskDescriptionText)
+        private Panel CreateTaskPanel(int taskId, string taskNameText, string taskDescriptionText, bool isActived)
         {
             Panel taskContainer = new Panel()
             {
@@ -261,12 +270,23 @@ namespace Task_Master
                 ReadOnly = true // Hiển thị readonly
             };
 
+            CheckBox isActiveCheckbox = new CheckBox()
+            {
+                Text = "Active",
+                Location = new Point(165, 5),
+                Checked = isActived
+            };
+            isActiveCheckbox.CheckedChanged += (sender, e) =>
+            {
+                DatabaseHelper.UpdateTask(taskId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked);
+            };
+
             Button deleteTaskButton = new Button()
             {
                 Text = "X",
                 Width = 20,
                 Height = 20,
-                Location = new Point(165, 10),
+                Location = new Point(165, 30),
                 BackColor = Color.Red,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
@@ -289,6 +309,7 @@ namespace Task_Master
 
             taskContainer.Controls.Add(taskName);
             taskContainer.Controls.Add(taskDescription);
+            taskContainer.Controls.Add(isActiveCheckbox);
             taskContainer.Controls.Add(deleteTaskButton);
 
             // Kéo thả sự kiện

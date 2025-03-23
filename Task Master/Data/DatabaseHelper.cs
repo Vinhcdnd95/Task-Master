@@ -109,15 +109,13 @@ namespace Task_Master.Data
             ExecuteNonQuery(query, parameters);
         }
 
-        // Thêm phương thức để lấy danh sách task theo list_id
         public static DataTable GetTasks(int listId)
         {
-            string query = "SELECT id, name, description FROM [task] WHERE list_id = @listId";
+            string query = "SELECT id, name, description, is_actived FROM [task] WHERE list_id = @listId";
             SqlParameter[] parameters = { new SqlParameter("@listId", listId) };
             return ExecuteQuery(query, parameters);
         }
 
-        // Thêm phương thức để di chuyển task giữa các danh sách
         public static void MoveTaskToList(int taskId, int newListId)
         {
             string query = "UPDATE [task] SET list_id = @newListId WHERE id = @taskId";
