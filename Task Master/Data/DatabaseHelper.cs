@@ -75,29 +75,31 @@ namespace Task_Master.Data
             return ExecuteScalar(query, parameters);
         }
 
-        public static int InsertTask(int listId, string name, string description, bool isActived)
+        public static int InsertTask(int listId, string name, string description, bool isActived, DateTime deadline)
         {
-            string query = "INSERT INTO [task] (list_id, name, description, is_actived) " +
-                           "VALUES (@listId, @name, @description, @isActived); " +
+            string query = "INSERT INTO [task] (list_id, name, description, is_actived, deadline) " +
+                           "VALUES (@listId, @name, @description, @isActived, @deadline); " +
                            "SELECT SCOPE_IDENTITY();";
             SqlParameter[] parameters = {
                 new SqlParameter("@listId", listId),
                 new SqlParameter("@name", name ?? (object)DBNull.Value),
                 new SqlParameter("@description", description ?? (object)DBNull.Value),
-                new SqlParameter("@isActived", isActived)
+                new SqlParameter("@isActived", isActived),
+                new SqlParameter("@deadline", deadline)
             };
             return ExecuteScalar(query, parameters);
         }
 
-        public static void UpdateTask(int taskId, string name, string description, bool isActived)
+        public static void UpdateTask(int taskId, string name, string description, bool isActived, DateTime deadline)
         {
             string query = "UPDATE [task] SET name = @name, description = @description, " +
-                           "is_actived = @isActived WHERE id = @taskId";
+                           "is_actived = @isActived, deadline = @deadline WHERE id = @taskId";
             SqlParameter[] parameters = {
                 new SqlParameter("@taskId", taskId),
                 new SqlParameter("@name", name ?? (object)DBNull.Value),
                 new SqlParameter("@description", description ?? (object)DBNull.Value),
-                new SqlParameter("@isActived", isActived)
+                new SqlParameter("@isActived", isActived),
+                new SqlParameter("@deadline", deadline)
             };
             ExecuteNonQuery(query, parameters);
         }
@@ -109,9 +111,16 @@ namespace Task_Master.Data
             ExecuteNonQuery(query, parameters);
         }
 
+        public static void DeleteList(int listId)
+        {
+            string query = "DELETE FROM List WHERE id = @listId";
+            SqlParameter[] parameters = { new SqlParameter("@listId", listId) };
+            ExecuteNonQuery(query, parameters);
+        }
+
         public static DataTable GetTasks(int listId)
         {
-            string query = "SELECT id, name, description, is_actived FROM [task] WHERE list_id = @listId";
+            string query = "SELECT id, name, description, is_actived, deadline FROM [task] WHERE list_id = @listId";
             SqlParameter[] parameters = { new SqlParameter("@listId", listId) };
             return ExecuteQuery(query, parameters);
         }
