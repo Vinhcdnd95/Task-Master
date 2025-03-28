@@ -45,12 +45,13 @@ namespace Task_Master
         private void SetupUI()
         {
             this.Text = "Task Master";
-            this.Size = new Size(1200, 700); // Tăng kích thước của form
+            this.Size = new Size(1500, 900); // Điều chỉnh kích thước của form
 
             boardPanel = new FlowLayoutPanel()
             {
                 Dock = DockStyle.Fill,
                 AutoScroll = true,
+                HorizontalScroll = { Enabled = false, Visible = false }, // Vô hiệu hóa thanh cuộn ngang
                 FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = false
             };
@@ -79,11 +80,11 @@ namespace Task_Master
         {
             Panel panel = new Panel()
             {
-                Width = 300, // Tăng chiều rộng của list
-                Height = 625, // Tăng chiều cao của list
+                Width = 350, // Tăng chiều rộng của danh sách
+                Height = 790, // Tăng chiều cao của danh sách
                 BackColor = Color.LightGray,
                 Padding = new Padding(5),
-                Tag = listId // Lưu listId vào Tag
+                Tag = listId // Lưu listId trong Tag
             };
 
             // Tiêu đề danh sách
@@ -130,15 +131,16 @@ namespace Task_Master
             // FlowLayoutPanel để chứa các task
             FlowLayoutPanel taskPanel = new FlowLayoutPanel()
             {
-                Location = new Point(10, 50), // Điều chỉnh vị trí
-                Width = 280, // Tăng chiều rộng của FlowLayoutPanel
-                Height = 380, // Tăng chiều cao của FlowLayoutPanel
+                Location = new Point(5, 50), // Điều chỉnh vị trí
+                Width = 300, // Tăng chiều rộng của FlowLayoutPanel
+                Height = 600, // Tăng chiều cao của FlowLayoutPanel
                 AutoScroll = true,
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
                 AllowDrop = true
             };
             taskPanel.DragEnter += TaskPanel_DragEnter;
+            taskPanel.DragOver += TaskPanel_DragOver; // Thêm sự kiện DragOver
             taskPanel.DragDrop += TaskPanel_DragDrop;
             panel.Controls.Add(taskPanel);
 
@@ -162,10 +164,10 @@ namespace Task_Master
             // Nút thêm task
             Button addTaskButton = new Button()
             {
-                Text = "+ Add Task",
+                Text = "+ Thêm Task",
                 Width = 120, // Tăng chiều rộng của Button
                 Height = 40, // Tăng chiều cao của Button
-                Location = new Point(10, 575), // Điều chỉnh vị trí
+                Location = new Point(10, 740), // Điều chỉnh vị trí
                 BackColor = Color.Green,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
@@ -174,25 +176,40 @@ namespace Task_Master
             {
                 Panel taskContainer = new Panel()
                 {
-                    Width = 260, // Tăng chiều rộng của taskContainer
-                    Height = 150, // Tăng chiều cao để chứa thêm DateTimePicker và nút
+                    Width = 290, // Tăng chiều rộng của taskContainer
+                    Height = 180, // Tăng chiều cao để chứa thêm DateTimePicker và nút
                     Margin = new Padding(5),
-                    Tag = -1 // Chưa có trong DB
+                    Tag = -1, // Chưa có trong DB
+                    BorderStyle = BorderStyle.FixedSingle // Thêm khung viền cho task
+                };
+
+                Label taskNameLabel = new Label()
+                {
+                    Text = "Nội dung:",
+                    Location = new Point(0, 0),
+                    Width = 220
                 };
 
                 TextBox taskName = new TextBox()
                 {
                     Text = "",
                     Width = 220, // Tăng chiều rộng của TextBox
-                    Location = new Point(0, 5),
+                    Location = new Point(0, 20),
                     MaxLength = 50
+                };
+
+                Label taskDescriptionLabel = new Label()
+                {
+                    Text = "Người thực hiện:",
+                    Location = new Point(0, 50),
+                    Width = 220
                 };
 
                 TextBox taskDescription = new TextBox()
                 {
                     Text = "",
                     Width = 220, // Tăng chiều rộng của TextBox
-                    Location = new Point(0, 35),
+                    Location = new Point(0, 70),
                     MaxLength = 200
                 };
 
@@ -200,12 +217,19 @@ namespace Task_Master
                 {
                     Text = "Active",
                     Location = new Point(230, 5),
-                    Checked = true // Default new task to active
+                    Checked = true // Mặc định task mới là active
+                };
+
+                Label deadlineLabel = new Label()
+                {
+                    Text = "Thời hạn:",
+                    Location = new Point(0, 100),
+                    Width = 220
                 };
 
                 DateTimePicker deadlinePicker = new DateTimePicker()
                 {
-                    Location = new Point(0, 65),
+                    Location = new Point(0, 120),
                     Width = 260,
                     Format = DateTimePickerFormat.Custom,
                     CustomFormat = "dd/MM/yyyy HH:mm"
@@ -213,10 +237,10 @@ namespace Task_Master
 
                 Button saveButton = new Button()
                 {
-                    Text = "Save",
+                    Text = "Lưu",
                     Width = 60,
                     Height = 25,
-                    Location = new Point(0, 100),
+                    Location = new Point(0, 150),
                     BackColor = Color.Blue,
                     ForeColor = Color.White,
                     FlatStyle = FlatStyle.Flat
@@ -229,23 +253,26 @@ namespace Task_Master
                     {
                         taskId = DatabaseHelper.InsertTask(listId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked, deadlinePicker.Value);
                         taskContainer.Tag = taskId;
-                        MessageBox.Show("Task added: " + taskName.Text, "Success",
+                        MessageBox.Show("Task đã thêm: " + taskName.Text, "Thành công",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Tạo task mới và thêm vào taskPanel
                         Panel newTaskContainer = CreateTaskPanel(taskId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked, deadlinePicker.Value);
                         taskPanel.Controls.Add(newTaskContainer);
 
-                        // Xóa nội dung trong các TextBox
+                        // Xóa nội dung trong TextBox
                         taskName.Text = "";
                         taskDescription.Text = "";
                         deadlinePicker.Value = DateTime.Now;
                     }
                 };
 
+                taskContainer.Controls.Add(taskNameLabel);
                 taskContainer.Controls.Add(taskName);
+                taskContainer.Controls.Add(taskDescriptionLabel);
                 taskContainer.Controls.Add(taskDescription);
                 taskContainer.Controls.Add(isActiveCheckbox);
+                taskContainer.Controls.Add(deadlineLabel);
                 taskContainer.Controls.Add(deadlinePicker);
                 taskContainer.Controls.Add(saveButton);
                 taskPanel.Controls.Add(taskContainer);
@@ -259,26 +286,41 @@ namespace Task_Master
         {
             Panel taskContainer = new Panel()
             {
-                Width = 260, // Tăng chiều rộng của taskContainer
-                Height = 150, // Tăng chiều cao để chứa thêm DateTimePicker và nút
+                Width = 290, // Tăng chiều rộng của taskContainer
+                Height = 180, // Tăng chiều cao để chứa thêm DateTimePicker và nút
                 Margin = new Padding(5),
-                Tag = taskId // Lưu taskId
+                Tag = taskId, // Lưu taskId
+                BorderStyle = BorderStyle.FixedSingle // Thêm khung viền cho task
+            };
+
+            Label taskNameLabel = new Label()
+            {
+                Text = "Nội dung:",
+                Location = new Point(0, 0),
+                Width = 220
             };
 
             TextBox taskName = new TextBox()
             {
                 Text = taskNameText,
                 Width = 220, // Tăng chiều rộng của TextBox
-                Location = new Point(0, 5),
+                Location = new Point(0, 20),
                 MaxLength = 50,
                 ReadOnly = true // Hiển thị readonly
+            };
+
+            Label taskDescriptionLabel = new Label()
+            {
+                Text = "Người thực hiện:",
+                Location = new Point(0, 50),
+                Width = 220
             };
 
             TextBox taskDescription = new TextBox()
             {
                 Text = taskDescriptionText,
                 Width = 220, // Tăng chiều rộng của TextBox
-                Location = new Point(0, 35),
+                Location = new Point(0, 70),
                 MaxLength = 200,
                 ReadOnly = true // Hiển thị readonly
             };
@@ -294,9 +336,16 @@ namespace Task_Master
                 DatabaseHelper.UpdateTask(taskId, taskName.Text, taskDescription.Text, isActiveCheckbox.Checked, deadline);
             };
 
+            Label deadlineLabel = new Label()
+            {
+                Text = "Thời hạn:",
+                Location = new Point(0, 100),
+                Width = 220
+            };
+
             DateTimePicker deadlinePicker = new DateTimePicker()
             {
-                Location = new Point(0, 65),
+                Location = new Point(0, 120),
                 Width = 260,
                 Format = DateTimePickerFormat.Custom,
                 CustomFormat = "dd/MM/yyyy HH:mm",
@@ -309,7 +358,7 @@ namespace Task_Master
                 Text = "X",
                 Width = 60,
                 Height = 25,
-                Location = new Point(70, 100),
+                Location = new Point(70, 150),
                 BackColor = Color.Red,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
@@ -330,9 +379,12 @@ namespace Task_Master
                 }
             };
 
+            taskContainer.Controls.Add(taskNameLabel);
             taskContainer.Controls.Add(taskName);
+            taskContainer.Controls.Add(taskDescriptionLabel);
             taskContainer.Controls.Add(taskDescription);
             taskContainer.Controls.Add(isActiveCheckbox);
+            taskContainer.Controls.Add(deadlineLabel);
             taskContainer.Controls.Add(deadlinePicker);
             taskContainer.Controls.Add(deleteTaskButton);
 
@@ -372,6 +424,18 @@ namespace Task_Master
             }
         }
 
+        private void TaskPanel_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(Panel)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
         private void TaskPanel_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(Panel)))
@@ -393,3 +457,8 @@ namespace Task_Master
         }
     }
 }
+
+
+
+
+//12345678910
