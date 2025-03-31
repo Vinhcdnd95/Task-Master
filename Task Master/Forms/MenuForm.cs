@@ -16,7 +16,8 @@ namespace PM_THI_TN
         }
         private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormUser formUser = new FormUser();
+            formUser.Show();
         }
 
         private void làmBàiThiToolStripMenuItem_Click(object sender, EventArgs e)

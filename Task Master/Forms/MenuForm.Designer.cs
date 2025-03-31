@@ -32,10 +32,6 @@
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUserManager = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnBoardManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnTaskManager = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnListManager = new System.Windows.Forms.ToolStripMenuItem();
             this.thốngKêBáoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
@@ -66,40 +62,6 @@
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
-            // danhMụcToolStripMenuItem
-            // 
-            this.danhMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnBoardManager,
-            this.btnTaskManager,
-            this.btnListManager});
-            this.danhMụcToolStripMenuItem.Name = "danhMụcToolStripMenuItem";
-            this.danhMụcToolStripMenuItem.Size = new System.Drawing.Size(55, 32);
-            this.danhMụcToolStripMenuItem.Text = "List";
-            // 
-            // btnBoardManager
-            // 
-            this.btnBoardManager.Image = ((System.Drawing.Image)(resources.GetObject("btnBoardManager.Image")));
-            this.btnBoardManager.Name = "btnBoardManager";
-            this.btnBoardManager.Size = new System.Drawing.Size(224, 32);
-            this.btnBoardManager.Text = "Quản lý Board";
-            this.btnBoardManager.Click += new System.EventHandler(this.btnBoardManager_Click);
-            // 
-            // btnTaskManager
-            // 
-            this.btnTaskManager.Image = ((System.Drawing.Image)(resources.GetObject("btnTaskManager.Image")));
-            this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(224, 32);
-            this.btnTaskManager.Text = "Quản lý Task";
-            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
-            // 
-            // btnListManager
-            // 
-            this.btnListManager.Image = ((System.Drawing.Image)(resources.GetObject("btnListManager.Image")));
-            this.btnListManager.Name = "btnListManager";
-            this.btnListManager.Size = new System.Drawing.Size(224, 32);
-            this.btnListManager.Text = "Quản lý List";
-            this.btnListManager.Click += new System.EventHandler(this.quảnLýCâuHỏiToolStripMenuItem_Click);
-            // 
             // thốngKêBáoCáoToolStripMenuItem
             // 
             this.thốngKêBáoCáoToolStripMenuItem.Name = "thốngKêBáoCáoToolStripMenuItem";
@@ -113,7 +75,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
-            this.danhMụcToolStripMenuItem,
             this.thốngKêBáoCáoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -153,10 +114,6 @@
         private System.Windows.Forms.ToolStripMenuItem hệThốngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnUserManager;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem danhMụcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem btnBoardManager;
-        private System.Windows.Forms.ToolStripMenuItem btnListManager;
-        private System.Windows.Forms.ToolStripMenuItem btnTaskManager;
         private System.Windows.Forms.ToolStripMenuItem thốngKêBáoCáoToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
     }

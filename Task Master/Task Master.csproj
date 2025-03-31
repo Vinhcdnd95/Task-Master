@@ -108,6 +108,12 @@
     <Compile Include="Forms\FormTask.Designer.cs">
       <DependentUpon>FormTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Models\AssignmentModel.cs" />
     <Compile Include="Models\BoardModel.cs" />
@@ -134,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\FormBoard.resx">
       <DependentUpon>FormBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

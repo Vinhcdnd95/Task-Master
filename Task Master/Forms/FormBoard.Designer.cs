@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.quản_lý_công_việcDataSet = new Task_Master.Quản_lý_công_việcDataSet();
+           
             this.boardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boardTableAdapter = new Task_Master.Quản_lý_công_việcDataSetTableAdapters.boardTableAdapter();
+           
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quản_lý_công_việcDataSet)).BeginInit();
+           
             ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,19 +60,9 @@
             this.dataGridView1.TabIndex = 0;
             // 
             // quản_lý_công_việcDataSet
-            // 
-            this.quản_lý_công_việcDataSet.DataSetName = "Quản_lý_công_việcDataSet";
-            this.quản_lý_công_việcDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // boardBindingSource
-            // 
+
             this.boardBindingSource.DataMember = "board";
-            this.boardBindingSource.DataSource = this.quản_lý_công_việcDataSet;
-            // 
-            // boardTableAdapter
-            // 
-            this.boardTableAdapter.ClearBeforeFill = true;
-            // 
+
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -116,8 +106,7 @@
             this.Text = "FormBoard";
             this.Load += new System.EventHandler(this.FormBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quản_lý_công_việcDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).EndInit();
+     ((System.ComponentModel.ISupportInitialize)(this.boardBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,9 +114,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private Quản_lý_công_việcDataSet quản_lý_công_việcDataSet;
         private System.Windows.Forms.BindingSource boardBindingSource;
-        private Quản_lý_công_việcDataSetTableAdapters.boardTableAdapter boardTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;

@@ -28,11 +28,11 @@ namespace Task_Master {
         
         private boardDataTable tableboard;
         
-        private listDataTable tablelist;
+        private listsDataTable tablelists;
         
-        private taskDataTable tabletask;
+        private tasksDataTable tabletasks;
         
-        private userDataTable tableuser;
+        private usersDataTable tableusers;
         
         private global::System.Data.DataRelation relationFK_assignment_Task;
         
@@ -76,14 +76,14 @@ namespace Task_Master {
                 if ((ds.Tables["board"] != null)) {
                     base.Tables.Add(new boardDataTable(ds.Tables["board"]));
                 }
-                if ((ds.Tables["list"] != null)) {
-                    base.Tables.Add(new listDataTable(ds.Tables["list"]));
+                if ((ds.Tables["lists"] != null)) {
+                    base.Tables.Add(new listsDataTable(ds.Tables["lists"]));
                 }
-                if ((ds.Tables["task"] != null)) {
-                    base.Tables.Add(new taskDataTable(ds.Tables["task"]));
+                if ((ds.Tables["tasks"] != null)) {
+                    base.Tables.Add(new tasksDataTable(ds.Tables["tasks"]));
                 }
-                if ((ds.Tables["user"] != null)) {
-                    base.Tables.Add(new userDataTable(ds.Tables["user"]));
+                if ((ds.Tables["users"] != null)) {
+                    base.Tables.Add(new usersDataTable(ds.Tables["users"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,9 +127,9 @@ namespace Task_Master {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public listDataTable list {
+        public listsDataTable lists {
             get {
-                return this.tablelist;
+                return this.tablelists;
             }
         }
         
@@ -137,9 +137,9 @@ namespace Task_Master {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public taskDataTable task {
+        public tasksDataTable tasks {
             get {
-                return this.tabletask;
+                return this.tabletasks;
             }
         }
         
@@ -147,9 +147,9 @@ namespace Task_Master {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public userDataTable user {
+        public usersDataTable users {
             get {
-                return this.tableuser;
+                return this.tableusers;
             }
         }
         
@@ -226,14 +226,14 @@ namespace Task_Master {
                 if ((ds.Tables["board"] != null)) {
                     base.Tables.Add(new boardDataTable(ds.Tables["board"]));
                 }
-                if ((ds.Tables["list"] != null)) {
-                    base.Tables.Add(new listDataTable(ds.Tables["list"]));
+                if ((ds.Tables["lists"] != null)) {
+                    base.Tables.Add(new listsDataTable(ds.Tables["lists"]));
                 }
-                if ((ds.Tables["task"] != null)) {
-                    base.Tables.Add(new taskDataTable(ds.Tables["task"]));
+                if ((ds.Tables["tasks"] != null)) {
+                    base.Tables.Add(new tasksDataTable(ds.Tables["tasks"]));
                 }
-                if ((ds.Tables["user"] != null)) {
-                    base.Tables.Add(new userDataTable(ds.Tables["user"]));
+                if ((ds.Tables["users"] != null)) {
+                    base.Tables.Add(new usersDataTable(ds.Tables["users"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -280,22 +280,22 @@ namespace Task_Master {
                     this.tableboard.InitVars();
                 }
             }
-            this.tablelist = ((listDataTable)(base.Tables["list"]));
+            this.tablelists = ((listsDataTable)(base.Tables["lists"]));
             if ((initTable == true)) {
-                if ((this.tablelist != null)) {
-                    this.tablelist.InitVars();
+                if ((this.tablelists != null)) {
+                    this.tablelists.InitVars();
                 }
             }
-            this.tabletask = ((taskDataTable)(base.Tables["task"]));
+            this.tabletasks = ((tasksDataTable)(base.Tables["tasks"]));
             if ((initTable == true)) {
-                if ((this.tabletask != null)) {
-                    this.tabletask.InitVars();
+                if ((this.tabletasks != null)) {
+                    this.tabletasks.InitVars();
                 }
             }
-            this.tableuser = ((userDataTable)(base.Tables["user"]));
+            this.tableusers = ((usersDataTable)(base.Tables["users"]));
             if ((initTable == true)) {
-                if ((this.tableuser != null)) {
-                    this.tableuser.InitVars();
+                if ((this.tableusers != null)) {
+                    this.tableusers.InitVars();
                 }
             }
             this.relationFK_assignment_Task = this.Relations["FK_assignment_Task"];
@@ -316,27 +316,27 @@ namespace Task_Master {
             base.Tables.Add(this.tableassignment);
             this.tableboard = new boardDataTable();
             base.Tables.Add(this.tableboard);
-            this.tablelist = new listDataTable();
-            base.Tables.Add(this.tablelist);
-            this.tabletask = new taskDataTable();
-            base.Tables.Add(this.tabletask);
-            this.tableuser = new userDataTable();
-            base.Tables.Add(this.tableuser);
+            this.tablelists = new listsDataTable();
+            base.Tables.Add(this.tablelists);
+            this.tabletasks = new tasksDataTable();
+            base.Tables.Add(this.tabletasks);
+            this.tableusers = new usersDataTable();
+            base.Tables.Add(this.tableusers);
             this.relationFK_assignment_Task = new global::System.Data.DataRelation("FK_assignment_Task", new global::System.Data.DataColumn[] {
-                        this.tabletask.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletasks.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableassignment.task_idColumn}, false);
             this.Relations.Add(this.relationFK_assignment_Task);
             this.relationFK_assignment_user = new global::System.Data.DataRelation("FK_assignment_user", new global::System.Data.DataColumn[] {
-                        this.tableuser.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableusers.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableassignment.user_idColumn}, false);
             this.Relations.Add(this.relationFK_assignment_user);
             this.relationFK_List_Board = new global::System.Data.DataRelation("FK_List_Board", new global::System.Data.DataColumn[] {
                         this.tableboard.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablelist.board_idColumn}, false);
+                        this.tablelists.board_idColumn}, false);
             this.Relations.Add(this.relationFK_List_Board);
             this.relationFK_Task_List = new global::System.Data.DataRelation("FK_Task_List", new global::System.Data.DataColumn[] {
-                        this.tablelist.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tabletask.list_idColumn}, false);
+                        this.tablelists.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletasks.list_idColumn}, false);
             this.Relations.Add(this.relationFK_Task_List);
         }
         
@@ -354,19 +354,19 @@ namespace Task_Master {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializelist() {
+        private bool ShouldSerializelists() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializetask() {
+        private bool ShouldSerializetasks() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeuser() {
+        private bool ShouldSerializeusers() {
             return false;
         }
         
@@ -432,13 +432,13 @@ namespace Task_Master {
         public delegate void boardRowChangeEventHandler(object sender, boardRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void listRowChangeEventHandler(object sender, listRowChangeEvent e);
+        public delegate void listsRowChangeEventHandler(object sender, listsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void taskRowChangeEventHandler(object sender, taskRowChangeEvent e);
+        public delegate void tasksRowChangeEventHandler(object sender, tasksRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void userRowChangeEventHandler(object sender, userRowChangeEvent e);
+        public delegate void usersRowChangeEventHandler(object sender, usersRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -547,14 +547,14 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public assignmentRow AddassignmentRow(taskRow parenttaskRowByFK_assignment_Task, System.DateTime due_date) {
+            public assignmentRow AddassignmentRow(tasksRow parenttasksRowByFK_assignment_Task, System.DateTime due_date) {
                 assignmentRow rowassignmentRow = ((assignmentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         due_date};
-                if ((parenttaskRowByFK_assignment_Task != null)) {
-                    columnValuesArray[1] = parenttaskRowByFK_assignment_Task[0];
+                if ((parenttasksRowByFK_assignment_Task != null)) {
+                    columnValuesArray[1] = parenttasksRowByFK_assignment_Task[0];
                 }
                 rowassignmentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowassignmentRow);
@@ -1046,7 +1046,7 @@ namespace Task_Master {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class listDataTable : global::System.Data.TypedTableBase<listRow> {
+        public partial class listsDataTable : global::System.Data.TypedTableBase<listsRow> {
             
             private global::System.Data.DataColumn columnid;
             
@@ -1058,8 +1058,8 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listDataTable() {
-                this.TableName = "list";
+            public listsDataTable() {
+                this.TableName = "lists";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1067,7 +1067,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal listDataTable(global::System.Data.DataTable table) {
+            internal listsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1084,7 +1084,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected listDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected listsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1132,34 +1132,34 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow this[int index] {
+            public listsRow this[int index] {
                 get {
-                    return ((listRow)(this.Rows[index]));
+                    return ((listsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event listRowChangeEventHandler listRowChanging;
+            public event listsRowChangeEventHandler listsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event listRowChangeEventHandler listRowChanged;
+            public event listsRowChangeEventHandler listsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event listRowChangeEventHandler listRowDeleting;
+            public event listsRowChangeEventHandler listsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event listRowChangeEventHandler listRowDeleted;
+            public event listsRowChangeEventHandler listsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddlistRow(listRow row) {
+            public void AddlistsRow(listsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow AddlistRow(string name, boardRow parentboardRowByFK_List_Board, System.DateTime createdAt) {
-                listRow rowlistRow = ((listRow)(this.NewRow()));
+            public listsRow AddlistsRow(string name, boardRow parentboardRowByFK_List_Board, System.DateTime createdAt) {
+                listsRow rowlistsRow = ((listsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
@@ -1168,22 +1168,22 @@ namespace Task_Master {
                 if ((parentboardRowByFK_List_Board != null)) {
                     columnValuesArray[2] = parentboardRowByFK_List_Board[0];
                 }
-                rowlistRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowlistRow);
-                return rowlistRow;
+                rowlistsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowlistsRow);
+                return rowlistsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow FindByid(int id) {
-                return ((listRow)(this.Rows.Find(new object[] {
+            public listsRow FindByid(int id) {
+                return ((listsRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                listDataTable cln = ((listDataTable)(base.Clone()));
+                listsDataTable cln = ((listsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1191,7 +1191,7 @@ namespace Task_Master {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new listDataTable();
+                return new listsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1227,28 +1227,28 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow NewlistRow() {
-                return ((listRow)(this.NewRow()));
+            public listsRow NewlistsRow() {
+                return ((listsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new listRow(builder);
+                return new listsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(listRow);
+                return typeof(listsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.listRowChanged != null)) {
-                    this.listRowChanged(this, new listRowChangeEvent(((listRow)(e.Row)), e.Action));
+                if ((this.listsRowChanged != null)) {
+                    this.listsRowChanged(this, new listsRowChangeEvent(((listsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1256,8 +1256,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.listRowChanging != null)) {
-                    this.listRowChanging(this, new listRowChangeEvent(((listRow)(e.Row)), e.Action));
+                if ((this.listsRowChanging != null)) {
+                    this.listsRowChanging(this, new listsRowChangeEvent(((listsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1265,8 +1265,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.listRowDeleted != null)) {
-                    this.listRowDeleted(this, new listRowChangeEvent(((listRow)(e.Row)), e.Action));
+                if ((this.listsRowDeleted != null)) {
+                    this.listsRowDeleted(this, new listsRowChangeEvent(((listsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1274,14 +1274,14 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.listRowDeleting != null)) {
-                    this.listRowDeleting(this, new listRowChangeEvent(((listRow)(e.Row)), e.Action));
+                if ((this.listsRowDeleting != null)) {
+                    this.listsRowDeleting(this, new listsRowChangeEvent(((listsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovelistRow(listRow row) {
+            public void RemovelistsRow(listsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1308,7 +1308,7 @@ namespace Task_Master {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "listDataTable";
+                attribute2.FixedValue = "listsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1354,7 +1354,7 @@ namespace Task_Master {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class taskDataTable : global::System.Data.TypedTableBase<taskRow> {
+        public partial class tasksDataTable : global::System.Data.TypedTableBase<tasksRow> {
             
             private global::System.Data.DataColumn columnid;
             
@@ -1368,10 +1368,12 @@ namespace Task_Master {
             
             private global::System.Data.DataColumn columndeadline;
             
+            private global::System.Data.DataColumn columnuser_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskDataTable() {
-                this.TableName = "task";
+            public tasksDataTable() {
+                this.TableName = "tasks";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1379,7 +1381,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal taskDataTable(global::System.Data.DataTable table) {
+            internal tasksDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1396,7 +1398,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected taskDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tasksDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1451,6 +1453,14 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn user_idColumn {
+                get {
+                    return this.columnuser_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1460,60 +1470,61 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow this[int index] {
+            public tasksRow this[int index] {
                 get {
-                    return ((taskRow)(this.Rows[index]));
+                    return ((tasksRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event taskRowChangeEventHandler taskRowChanging;
+            public event tasksRowChangeEventHandler tasksRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event taskRowChangeEventHandler taskRowChanged;
+            public event tasksRowChangeEventHandler tasksRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event taskRowChangeEventHandler taskRowDeleting;
+            public event tasksRowChangeEventHandler tasksRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event taskRowChangeEventHandler taskRowDeleted;
+            public event tasksRowChangeEventHandler tasksRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddtaskRow(taskRow row) {
+            public void AddtasksRow(tasksRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow AddtaskRow(string name, string description, listRow parentlistRowByFK_Task_List, bool is_actived, System.DateTime deadline) {
-                taskRow rowtaskRow = ((taskRow)(this.NewRow()));
+            public tasksRow AddtasksRow(string name, string description, listsRow parentlistsRowByFK_Task_List, bool is_actived, System.DateTime deadline, int user_id) {
+                tasksRow rowtasksRow = ((tasksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
                         description,
                         null,
                         is_actived,
-                        deadline};
-                if ((parentlistRowByFK_Task_List != null)) {
-                    columnValuesArray[3] = parentlistRowByFK_Task_List[0];
+                        deadline,
+                        user_id};
+                if ((parentlistsRowByFK_Task_List != null)) {
+                    columnValuesArray[3] = parentlistsRowByFK_Task_List[0];
                 }
-                rowtaskRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtaskRow);
-                return rowtaskRow;
+                rowtasksRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtasksRow);
+                return rowtasksRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow FindByid(int id) {
-                return ((taskRow)(this.Rows.Find(new object[] {
+            public tasksRow FindByid(int id) {
+                return ((tasksRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                taskDataTable cln = ((taskDataTable)(base.Clone()));
+                tasksDataTable cln = ((tasksDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1521,7 +1532,7 @@ namespace Task_Master {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new taskDataTable();
+                return new tasksDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1533,6 +1544,7 @@ namespace Task_Master {
                 this.columnlist_id = base.Columns["list_id"];
                 this.columnis_actived = base.Columns["is_actived"];
                 this.columndeadline = base.Columns["deadline"];
+                this.columnuser_id = base.Columns["user_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1550,6 +1562,8 @@ namespace Task_Master {
                 base.Columns.Add(this.columnis_actived);
                 this.columndeadline = new global::System.Data.DataColumn("deadline", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndeadline);
+                this.columnuser_id = new global::System.Data.DataColumn("user_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuser_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -1564,28 +1578,28 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow NewtaskRow() {
-                return ((taskRow)(this.NewRow()));
+            public tasksRow NewtasksRow() {
+                return ((tasksRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new taskRow(builder);
+                return new tasksRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(taskRow);
+                return typeof(tasksRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.taskRowChanged != null)) {
-                    this.taskRowChanged(this, new taskRowChangeEvent(((taskRow)(e.Row)), e.Action));
+                if ((this.tasksRowChanged != null)) {
+                    this.tasksRowChanged(this, new tasksRowChangeEvent(((tasksRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1593,8 +1607,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.taskRowChanging != null)) {
-                    this.taskRowChanging(this, new taskRowChangeEvent(((taskRow)(e.Row)), e.Action));
+                if ((this.tasksRowChanging != null)) {
+                    this.tasksRowChanging(this, new tasksRowChangeEvent(((tasksRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1602,8 +1616,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.taskRowDeleted != null)) {
-                    this.taskRowDeleted(this, new taskRowChangeEvent(((taskRow)(e.Row)), e.Action));
+                if ((this.tasksRowDeleted != null)) {
+                    this.tasksRowDeleted(this, new tasksRowChangeEvent(((tasksRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1611,14 +1625,14 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.taskRowDeleting != null)) {
-                    this.taskRowDeleting(this, new taskRowChangeEvent(((taskRow)(e.Row)), e.Action));
+                if ((this.tasksRowDeleting != null)) {
+                    this.tasksRowDeleting(this, new tasksRowChangeEvent(((tasksRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovetaskRow(taskRow row) {
+            public void RemovetasksRow(tasksRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1645,7 +1659,7 @@ namespace Task_Master {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "taskDataTable";
+                attribute2.FixedValue = "tasksDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1691,7 +1705,7 @@ namespace Task_Master {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class userDataTable : global::System.Data.TypedTableBase<userRow> {
+        public partial class usersDataTable : global::System.Data.TypedTableBase<usersRow> {
             
             private global::System.Data.DataColumn columnid;
             
@@ -1701,8 +1715,8 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userDataTable() {
-                this.TableName = "user";
+            public usersDataTable() {
+                this.TableName = "users";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1710,7 +1724,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal userDataTable(global::System.Data.DataTable table) {
+            internal usersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1727,7 +1741,7 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected userDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected usersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1767,54 +1781,54 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow this[int index] {
+            public usersRow this[int index] {
                 get {
-                    return ((userRow)(this.Rows[index]));
+                    return ((usersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event userRowChangeEventHandler userRowChanging;
+            public event usersRowChangeEventHandler usersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event userRowChangeEventHandler userRowChanged;
+            public event usersRowChangeEventHandler usersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event userRowChangeEventHandler userRowDeleting;
+            public event usersRowChangeEventHandler usersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event userRowChangeEventHandler userRowDeleted;
+            public event usersRowChangeEventHandler usersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AdduserRow(userRow row) {
+            public void AddusersRow(usersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow AdduserRow(string username, string password) {
-                userRow rowuserRow = ((userRow)(this.NewRow()));
+            public usersRow AddusersRow(string username, string password) {
+                usersRow rowusersRow = ((usersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         username,
                         password};
-                rowuserRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowuserRow);
-                return rowuserRow;
+                rowusersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowusersRow);
+                return rowusersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow FindByid(int id) {
-                return ((userRow)(this.Rows.Find(new object[] {
+            public usersRow FindByid(int id) {
+                return ((usersRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                userDataTable cln = ((userDataTable)(base.Clone()));
+                usersDataTable cln = ((usersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1822,7 +1836,7 @@ namespace Task_Master {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new userDataTable();
+                return new usersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1856,28 +1870,28 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow NewuserRow() {
-                return ((userRow)(this.NewRow()));
+            public usersRow NewusersRow() {
+                return ((usersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new userRow(builder);
+                return new usersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(userRow);
+                return typeof(usersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.userRowChanged != null)) {
-                    this.userRowChanged(this, new userRowChangeEvent(((userRow)(e.Row)), e.Action));
+                if ((this.usersRowChanged != null)) {
+                    this.usersRowChanged(this, new usersRowChangeEvent(((usersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1885,8 +1899,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.userRowChanging != null)) {
-                    this.userRowChanging(this, new userRowChangeEvent(((userRow)(e.Row)), e.Action));
+                if ((this.usersRowChanging != null)) {
+                    this.usersRowChanging(this, new usersRowChangeEvent(((usersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1894,8 +1908,8 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.userRowDeleted != null)) {
-                    this.userRowDeleted(this, new userRowChangeEvent(((userRow)(e.Row)), e.Action));
+                if ((this.usersRowDeleted != null)) {
+                    this.usersRowDeleted(this, new usersRowChangeEvent(((usersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1903,14 +1917,14 @@ namespace Task_Master {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.userRowDeleting != null)) {
-                    this.userRowDeleting(this, new userRowChangeEvent(((userRow)(e.Row)), e.Action));
+                if ((this.usersRowDeleting != null)) {
+                    this.usersRowDeleting(this, new usersRowChangeEvent(((usersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveuserRow(userRow row) {
+            public void RemoveusersRow(usersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1937,7 +1951,7 @@ namespace Task_Master {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "userDataTable";
+                attribute2.FixedValue = "usersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2032,9 +2046,9 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow taskRow {
+            public tasksRow tasksRow {
                 get {
-                    return ((taskRow)(this.GetParentRow(this.Table.ParentRelations["FK_assignment_Task"])));
+                    return ((tasksRow)(this.GetParentRow(this.Table.ParentRelations["FK_assignment_Task"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_assignment_Task"]);
@@ -2043,9 +2057,9 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow userRow {
+            public usersRow usersRow {
                 get {
-                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["FK_assignment_user"])));
+                    return ((usersRow)(this.GetParentRow(this.Table.ParentRelations["FK_assignment_user"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_assignment_user"]);
@@ -2176,12 +2190,12 @@ namespace Task_Master {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow[] GetlistRows() {
+            public listsRow[] GetlistsRows() {
                 if ((this.Table.ChildRelations["FK_List_Board"] == null)) {
-                    return new listRow[0];
+                    return new listsRow[0];
                 }
                 else {
-                    return ((listRow[])(base.GetChildRows(this.Table.ChildRelations["FK_List_Board"])));
+                    return ((listsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_List_Board"])));
                 }
             }
         }
@@ -2189,25 +2203,25 @@ namespace Task_Master {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class listRow : global::System.Data.DataRow {
+        public partial class listsRow : global::System.Data.DataRow {
             
-            private listDataTable tablelist;
+            private listsDataTable tablelists;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal listRow(global::System.Data.DataRowBuilder rb) : 
+            internal listsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablelist = ((listDataTable)(this.Table));
+                this.tablelists = ((listsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tablelist.idColumn]));
+                    return ((int)(this[this.tablelists.idColumn]));
                 }
                 set {
-                    this[this.tablelist.idColumn] = value;
+                    this[this.tablelists.idColumn] = value;
                 }
             }
             
@@ -2216,14 +2230,14 @@ namespace Task_Master {
             public string name {
                 get {
                     try {
-                        return ((string)(this[this.tablelist.nameColumn]));
+                        return ((string)(this[this.tablelists.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'list\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'lists\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelist.nameColumn] = value;
+                    this[this.tablelists.nameColumn] = value;
                 }
             }
             
@@ -2232,14 +2246,14 @@ namespace Task_Master {
             public int board_id {
                 get {
                     try {
-                        return ((int)(this[this.tablelist.board_idColumn]));
+                        return ((int)(this[this.tablelists.board_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'board_id\' in table \'list\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'board_id\' in table \'lists\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelist.board_idColumn] = value;
+                    this[this.tablelists.board_idColumn] = value;
                 }
             }
             
@@ -2248,14 +2262,14 @@ namespace Task_Master {
             public System.DateTime createdAt {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablelist.createdAtColumn]));
+                        return ((global::System.DateTime)(this[this.tablelists.createdAtColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'createdAt\' in table \'list\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'createdAt\' in table \'lists\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablelist.createdAtColumn] = value;
+                    this[this.tablelists.createdAtColumn] = value;
                 }
             }
             
@@ -2273,47 +2287,47 @@ namespace Task_Master {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
-                return this.IsNull(this.tablelist.nameColumn);
+                return this.IsNull(this.tablelists.nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnameNull() {
-                this[this.tablelist.nameColumn] = global::System.Convert.DBNull;
+                this[this.tablelists.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isboard_idNull() {
-                return this.IsNull(this.tablelist.board_idColumn);
+                return this.IsNull(this.tablelists.board_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setboard_idNull() {
-                this[this.tablelist.board_idColumn] = global::System.Convert.DBNull;
+                this[this.tablelists.board_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscreatedAtNull() {
-                return this.IsNull(this.tablelist.createdAtColumn);
+                return this.IsNull(this.tablelists.createdAtColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcreatedAtNull() {
-                this[this.tablelist.createdAtColumn] = global::System.Convert.DBNull;
+                this[this.tablelists.createdAtColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow[] GettaskRows() {
+            public tasksRow[] GettasksRows() {
                 if ((this.Table.ChildRelations["FK_Task_List"] == null)) {
-                    return new taskRow[0];
+                    return new tasksRow[0];
                 }
                 else {
-                    return ((taskRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Task_List"])));
+                    return ((tasksRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Task_List"])));
                 }
             }
         }
@@ -2321,25 +2335,25 @@ namespace Task_Master {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class taskRow : global::System.Data.DataRow {
+        public partial class tasksRow : global::System.Data.DataRow {
             
-            private taskDataTable tabletask;
+            private tasksDataTable tabletasks;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal taskRow(global::System.Data.DataRowBuilder rb) : 
+            internal tasksRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletask = ((taskDataTable)(this.Table));
+                this.tabletasks = ((tasksDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tabletask.idColumn]));
+                    return ((int)(this[this.tabletasks.idColumn]));
                 }
                 set {
-                    this[this.tabletask.idColumn] = value;
+                    this[this.tabletasks.idColumn] = value;
                 }
             }
             
@@ -2348,14 +2362,14 @@ namespace Task_Master {
             public string name {
                 get {
                     try {
-                        return ((string)(this[this.tabletask.nameColumn]));
+                        return ((string)(this[this.tabletasks.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'tasks\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletask.nameColumn] = value;
+                    this[this.tabletasks.nameColumn] = value;
                 }
             }
             
@@ -2364,14 +2378,14 @@ namespace Task_Master {
             public string description {
                 get {
                     try {
-                        return ((string)(this[this.tabletask.descriptionColumn]));
+                        return ((string)(this[this.tabletasks.descriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'description\' in table \'task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'description\' in table \'tasks\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletask.descriptionColumn] = value;
+                    this[this.tabletasks.descriptionColumn] = value;
                 }
             }
             
@@ -2380,14 +2394,14 @@ namespace Task_Master {
             public int list_id {
                 get {
                     try {
-                        return ((int)(this[this.tabletask.list_idColumn]));
+                        return ((int)(this[this.tabletasks.list_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'list_id\' in table \'task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'list_id\' in table \'tasks\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletask.list_idColumn] = value;
+                    this[this.tabletasks.list_idColumn] = value;
                 }
             }
             
@@ -2396,14 +2410,14 @@ namespace Task_Master {
             public bool is_actived {
                 get {
                     try {
-                        return ((bool)(this[this.tabletask.is_activedColumn]));
+                        return ((bool)(this[this.tabletasks.is_activedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'is_actived\' in table \'task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'is_actived\' in table \'tasks\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletask.is_activedColumn] = value;
+                    this[this.tabletasks.is_activedColumn] = value;
                 }
             }
             
@@ -2412,22 +2426,38 @@ namespace Task_Master {
             public System.DateTime deadline {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tabletask.deadlineColumn]));
+                        return ((global::System.DateTime)(this[this.tabletasks.deadlineColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'deadline\' in table \'task\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'deadline\' in table \'tasks\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletask.deadlineColumn] = value;
+                    this[this.tabletasks.deadlineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow listRow {
+            public int user_id {
                 get {
-                    return ((listRow)(this.GetParentRow(this.Table.ParentRelations["FK_Task_List"])));
+                    try {
+                        return ((int)(this[this.tabletasks.user_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'user_id\' in table \'tasks\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletasks.user_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public listsRow listsRow {
+                get {
+                    return ((listsRow)(this.GetParentRow(this.Table.ParentRelations["FK_Task_List"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Task_List"]);
@@ -2437,61 +2467,73 @@ namespace Task_Master {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsnameNull() {
-                return this.IsNull(this.tabletask.nameColumn);
+                return this.IsNull(this.tabletasks.nameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetnameNull() {
-                this[this.tabletask.nameColumn] = global::System.Convert.DBNull;
+                this[this.tabletasks.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdescriptionNull() {
-                return this.IsNull(this.tabletask.descriptionColumn);
+                return this.IsNull(this.tabletasks.descriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdescriptionNull() {
-                this[this.tabletask.descriptionColumn] = global::System.Convert.DBNull;
+                this[this.tabletasks.descriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Islist_idNull() {
-                return this.IsNull(this.tabletask.list_idColumn);
+                return this.IsNull(this.tabletasks.list_idColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setlist_idNull() {
-                this[this.tabletask.list_idColumn] = global::System.Convert.DBNull;
+                this[this.tabletasks.list_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isis_activedNull() {
-                return this.IsNull(this.tabletask.is_activedColumn);
+                return this.IsNull(this.tabletasks.is_activedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setis_activedNull() {
-                this[this.tabletask.is_activedColumn] = global::System.Convert.DBNull;
+                this[this.tabletasks.is_activedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsdeadlineNull() {
-                return this.IsNull(this.tabletask.deadlineColumn);
+                return this.IsNull(this.tabletasks.deadlineColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdeadlineNull() {
-                this[this.tabletask.deadlineColumn] = global::System.Convert.DBNull;
+                this[this.tabletasks.deadlineColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isuser_idNull() {
+                return this.IsNull(this.tabletasks.user_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setuser_idNull() {
+                this[this.tabletasks.user_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2509,25 +2551,25 @@ namespace Task_Master {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class userRow : global::System.Data.DataRow {
+        public partial class usersRow : global::System.Data.DataRow {
             
-            private userDataTable tableuser;
+            private usersDataTable tableusers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal userRow(global::System.Data.DataRowBuilder rb) : 
+            internal usersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableuser = ((userDataTable)(this.Table));
+                this.tableusers = ((usersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tableuser.idColumn]));
+                    return ((int)(this[this.tableusers.idColumn]));
                 }
                 set {
-                    this[this.tableuser.idColumn] = value;
+                    this[this.tableusers.idColumn] = value;
                 }
             }
             
@@ -2536,14 +2578,14 @@ namespace Task_Master {
             public string username {
                 get {
                     try {
-                        return ((string)(this[this.tableuser.usernameColumn]));
+                        return ((string)(this[this.tableusers.usernameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'username\' in table \'user\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'username\' in table \'users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableuser.usernameColumn] = value;
+                    this[this.tableusers.usernameColumn] = value;
                 }
             }
             
@@ -2552,39 +2594,39 @@ namespace Task_Master {
             public string password {
                 get {
                     try {
-                        return ((string)(this[this.tableuser.passwordColumn]));
+                        return ((string)(this[this.tableusers.passwordColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'password\' in table \'user\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'password\' in table \'users\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableuser.passwordColumn] = value;
+                    this[this.tableusers.passwordColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsusernameNull() {
-                return this.IsNull(this.tableuser.usernameColumn);
+                return this.IsNull(this.tableusers.usernameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetusernameNull() {
-                this[this.tableuser.usernameColumn] = global::System.Convert.DBNull;
+                this[this.tableusers.usernameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IspasswordNull() {
-                return this.IsNull(this.tableuser.passwordColumn);
+                return this.IsNull(this.tableusers.passwordColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetpasswordNull() {
-                this[this.tableuser.passwordColumn] = global::System.Convert.DBNull;
+                this[this.tableusers.passwordColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2671,22 +2713,22 @@ namespace Task_Master {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class listRowChangeEvent : global::System.EventArgs {
+        public class listsRowChangeEvent : global::System.EventArgs {
             
-            private listRow eventRow;
+            private listsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRowChangeEvent(listRow row, global::System.Data.DataRowAction action) {
+            public listsRowChangeEvent(listsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public listRow Row {
+            public listsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2705,22 +2747,22 @@ namespace Task_Master {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class taskRowChangeEvent : global::System.EventArgs {
+        public class tasksRowChangeEvent : global::System.EventArgs {
             
-            private taskRow eventRow;
+            private tasksRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRowChangeEvent(taskRow row, global::System.Data.DataRowAction action) {
+            public tasksRowChangeEvent(tasksRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public taskRow Row {
+            public tasksRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2739,22 +2781,22 @@ namespace Task_Master {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class userRowChangeEvent : global::System.EventArgs {
+        public class usersRowChangeEvent : global::System.EventArgs {
             
-            private userRow eventRow;
+            private usersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRowChangeEvent(userRow row, global::System.Data.DataRowAction action) {
+            public usersRowChangeEvent(usersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public userRow Row {
+            public usersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3509,7 +3551,7 @@ SELECT id, name, description, createdAt FROM board WHERE (id = @id)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class listTableAdapter : global::System.ComponentModel.Component {
+    public partial class listsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3523,7 +3565,7 @@ SELECT id, name, description, createdAt FROM board WHERE (id = @id)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public listTableAdapter() {
+        public listsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3620,7 +3662,7 @@ SELECT id, name, description, createdAt FROM board WHERE (id = @id)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "list";
+            tableMapping.DataSetTable = "lists";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("board_id", "board_id");
@@ -3628,7 +3670,7 @@ SELECT id, name, description, createdAt FROM board WHERE (id = @id)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[list] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_board_id = 1 AND [board_id] IS NULL) OR ([board_id] = @Original_board_id)) AND ((@IsNull_createdAt = 1 AND [createdAt] IS NULL) OR ([createdAt] = @Original_createdAt)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[lists] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_board_id = 1 AND [board_id] IS NULL) OR ([board_id] = @Original_board_id)) AND ((@IsNull_createdAt = 1 AND [createdAt] IS NULL) OR ([createdAt] = @Original_createdAt)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -3639,17 +3681,17 @@ SELECT id, name, description, createdAt FROM board WHERE (id = @id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_createdAt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "createdAt", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[list] ([name], [board_id], [createdAt]) VALUES (@name, @board_" +
-                "id, @createdAt);\r\nSELECT id, name, board_id, createdAt FROM list WHERE (id = SCO" +
-                "PE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[lists] ([name], [board_id], [createdAt]) VALUES (@name, @board" +
+                "_id, @createdAt);\r\nSELECT id, name, board_id, createdAt FROM lists WHERE (id = S" +
+                "COPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@board_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "board_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@createdAt", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "createdAt", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[list] SET [name] = @name, [board_id] = @board_id, [createdAt] = @createdAt WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_board_id = 1 AND [board_id] IS NULL) OR ([board_id] = @Original_board_id)) AND ((@IsNull_createdAt = 1 AND [createdAt] IS NULL) OR ([createdAt] = @Original_createdAt)));
-SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[lists] SET [name] = @name, [board_id] = @board_id, [createdAt] = @createdAt WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_board_id = 1 AND [board_id] IS NULL) OR ([board_id] = @Original_board_id)) AND ((@IsNull_createdAt = 1 AND [createdAt] IS NULL) OR ([createdAt] = @Original_createdAt)));
+SELECT id, name, board_id, createdAt FROM lists WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@board_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "board_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3677,7 +3719,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, name, board_id, createdAt FROM dbo.list";
+            this._commandCollection[0].CommandText = "SELECT id, name, board_id, createdAt FROM dbo.lists";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3685,7 +3727,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Quản_lý_công_việcDataSet.listDataTable dataTable) {
+        public virtual int Fill(Quản_lý_công_việcDataSet.listsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3698,9 +3740,9 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Quản_lý_công_việcDataSet.listDataTable GetData() {
+        public virtual Quản_lý_công_việcDataSet.listsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Quản_lý_công_việcDataSet.listDataTable dataTable = new Quản_lý_công_việcDataSet.listDataTable();
+            Quản_lý_công_việcDataSet.listsDataTable dataTable = new Quản_lý_công_việcDataSet.listsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3708,7 +3750,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Quản_lý_công_việcDataSet.listDataTable dataTable) {
+        public virtual int Update(Quản_lý_công_việcDataSet.listsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -3716,7 +3758,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Quản_lý_công_việcDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "list");
+            return this.Adapter.Update(dataSet, "lists");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3902,7 +3944,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class taskTableAdapter : global::System.ComponentModel.Component {
+    public partial class tasksTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3916,7 +3958,7 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public taskTableAdapter() {
+        public tasksTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4013,17 +4055,18 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "task";
+            tableMapping.DataSetTable = "tasks";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("description", "description");
             tableMapping.ColumnMappings.Add("list_id", "list_id");
             tableMapping.ColumnMappings.Add("is_actived", "is_actived");
             tableMapping.ColumnMappings.Add("deadline", "deadline");
+            tableMapping.ColumnMappings.Add("user_id", "user_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[task] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_list_id = 1 AND [list_id] IS NULL) OR ([list_id] = @Original_list_id)) AND ((@IsNull_is_actived = 1 AND [is_actived] IS NULL) OR ([is_actived] = @Original_is_actived)) AND ((@IsNull_deadline = 1 AND [deadline] IS NULL) OR ([deadline] = @Original_deadline)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tasks] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_list_id = 1 AND [list_id] IS NULL) OR ([list_id] = @Original_list_id)) AND ((@IsNull_is_actived = 1 AND [is_actived] IS NULL) OR ([is_actived] = @Original_is_actived)) AND ((@IsNull_deadline = 1 AND [deadline] IS NULL) OR ([deadline] = @Original_deadline)) AND ((@IsNull_user_id = 1 AND [user_id] IS NULL) OR ([user_id] = @Original_user_id)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4036,28 +4079,30 @@ SELECT id, name, board_id, createdAt FROM list WHERE (id = @id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_is_actived", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "is_actived", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_deadline", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deadline", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[task] ([name], [description], [list_id], [is_actived], [deadli" +
-                "ne]) VALUES (@name, @description, @list_id, @is_actived, @deadline);\r\nSELECT id," +
-                " name, description, list_id, is_actived, deadline FROM task WHERE (id = SCOPE_ID" +
-                "ENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tasks] ([name], [description], [list_id], [is_actived], [deadline], [user_id]) VALUES (@name, @description, @list_id, @is_actived, @deadline, @user_id);
+SELECT id, name, description, list_id, is_actived, deadline, user_id FROM tasks WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@list_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "list_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_actived", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "is_actived", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deadline", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[task] SET [name] = @name, [description] = @description, [list_id] = @list_id, [is_actived] = @is_actived, [deadline] = @deadline WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_list_id = 1 AND [list_id] IS NULL) OR ([list_id] = @Original_list_id)) AND ((@IsNull_is_actived = 1 AND [is_actived] IS NULL) OR ([is_actived] = @Original_is_actived)) AND ((@IsNull_deadline = 1 AND [deadline] IS NULL) OR ([deadline] = @Original_deadline)));
-SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tasks] SET [name] = @name, [description] = @description, [list_id] = @list_id, [is_actived] = @is_actived, [deadline] = @deadline, [user_id] = @user_id WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_description = 1 AND [description] IS NULL) OR ([description] = @Original_description)) AND ((@IsNull_list_id = 1 AND [list_id] IS NULL) OR ([list_id] = @Original_list_id)) AND ((@IsNull_is_actived = 1 AND [is_actived] IS NULL) OR ([is_actived] = @Original_is_actived)) AND ((@IsNull_deadline = 1 AND [deadline] IS NULL) OR ([deadline] = @Original_deadline)) AND ((@IsNull_user_id = 1 AND [user_id] IS NULL) OR ([user_id] = @Original_user_id)));
+SELECT id, name, description, list_id, is_actived, deadline, user_id FROM tasks WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@list_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "list_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@is_actived", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "is_actived", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@deadline", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4069,6 +4114,8 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_is_actived", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "is_actived", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_deadline", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_deadline", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "deadline", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_user_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "user_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -4085,7 +4132,8 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, name, description, list_id, is_actived, deadline FROM dbo.task";
+            this._commandCollection[0].CommandText = "SELECT id, name, description, list_id, is_actived, deadline, user_id FROM dbo.tas" +
+                "ks";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4093,7 +4141,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Quản_lý_công_việcDataSet.taskDataTable dataTable) {
+        public virtual int Fill(Quản_lý_công_việcDataSet.tasksDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4106,9 +4154,9 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Quản_lý_công_việcDataSet.taskDataTable GetData() {
+        public virtual Quản_lý_công_việcDataSet.tasksDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Quản_lý_công_việcDataSet.taskDataTable dataTable = new Quản_lý_công_việcDataSet.taskDataTable();
+            Quản_lý_công_việcDataSet.tasksDataTable dataTable = new Quản_lý_công_việcDataSet.tasksDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4116,7 +4164,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Quản_lý_công_việcDataSet.taskDataTable dataTable) {
+        public virtual int Update(Quản_lý_công_việcDataSet.tasksDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -4124,7 +4172,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Quản_lý_công_việcDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "task");
+            return this.Adapter.Update(dataSet, "tasks");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4146,7 +4194,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline) {
+        public virtual int Delete(int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline, global::System.Nullable<int> Original_user_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -4188,6 +4236,14 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            if ((Original_user_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_user_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4208,7 +4264,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline) {
+        public virtual int Insert(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline, global::System.Nullable<int> user_id) {
             if ((name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4239,6 +4295,12 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            if ((user_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(user_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4259,7 +4321,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline, int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline, int id) {
+        public virtual int Update(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline, global::System.Nullable<int> user_id, int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline, global::System.Nullable<int> Original_user_id, int id) {
             if ((name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4290,48 +4352,62 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id));
-            if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((user_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(user_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
+            if ((Original_name == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
             }
             if ((Original_description == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_description));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_description));
             }
             if ((Original_list_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_list_id.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_list_id.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_is_actived.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((bool)(Original_is_actived.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(Original_is_actived.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_deadline.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_deadline.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_deadline.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(id));
+            if ((Original_user_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_user_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4352,8 +4428,8 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline, int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline) {
-            return this.Update(name, description, list_id, is_actived, deadline, Original_id, Original_name, Original_description, Original_list_id, Original_is_actived, Original_deadline, Original_id);
+        public virtual int Update(string name, string description, global::System.Nullable<int> list_id, global::System.Nullable<bool> is_actived, global::System.Nullable<global::System.DateTime> deadline, global::System.Nullable<int> user_id, int Original_id, string Original_name, string Original_description, global::System.Nullable<int> Original_list_id, global::System.Nullable<bool> Original_is_actived, global::System.Nullable<global::System.DateTime> Original_deadline, global::System.Nullable<int> Original_user_id) {
+            return this.Update(name, description, list_id, is_actived, deadline, user_id, Original_id, Original_name, Original_description, Original_list_id, Original_is_actived, Original_deadline, Original_user_id, Original_id);
         }
     }
     
@@ -4366,7 +4442,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class userTableAdapter : global::System.ComponentModel.Component {
+    public partial class usersTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -4380,7 +4456,7 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public userTableAdapter() {
+        public usersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4477,16 +4553,16 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "user";
+            tableMapping.DataSetTable = "users";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("username", "username");
             tableMapping.ColumnMappings.Add("password", "password");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[user] WHERE (([id] = @Original_id) AND ((@IsNull_username = 1 " +
-                "AND [username] IS NULL) OR ([username] = @Original_username)) AND ((@IsNull_pass" +
-                "word = 1 AND [password] IS NULL) OR ([password] = @Original_password)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[users] WHERE (([id] = @Original_id) AND ((@IsNull_username = 1" +
+                " AND [username] IS NULL) OR ([username] = @Original_username)) AND ((@IsNull_pas" +
+                "sword = 1 AND [password] IS NULL) OR ([password] = @Original_password)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_username", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -4495,15 +4571,15 @@ SELECT id, name, description, list_id, is_actived, deadline FROM task WHERE (id 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[user] ([username], [password]) VALUES (@username, @password);\r" +
-                "\nSELECT id, username, password FROM [user] WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[users] ([username], [password]) VALUES (@username, @password);" +
+                "\r\nSELECT id, username, password FROM users WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[user] SET [username] = @username, [password] = @password WHERE (([id] = @Original_id) AND ((@IsNull_username = 1 AND [username] IS NULL) OR ([username] = @Original_username)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)));
-SELECT id, username, password FROM [user] WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[users] SET [username] = @username, [password] = @password WHERE (([id] = @Original_id) AND ((@IsNull_username = 1 AND [username] IS NULL) OR ([username] = @Original_username)) AND ((@IsNull_password = 1 AND [password] IS NULL) OR ([password] = @Original_password)));
+SELECT id, username, password FROM users WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4528,7 +4604,7 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, username, password FROM dbo.[user]";
+            this._commandCollection[0].CommandText = "SELECT id, username, password FROM dbo.users";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4536,7 +4612,7 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Quản_lý_công_việcDataSet.userDataTable dataTable) {
+        public virtual int Fill(Quản_lý_công_việcDataSet.usersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4549,9 +4625,9 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Quản_lý_công_việcDataSet.userDataTable GetData() {
+        public virtual Quản_lý_công_việcDataSet.usersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Quản_lý_công_việcDataSet.userDataTable dataTable = new Quản_lý_công_việcDataSet.userDataTable();
+            Quản_lý_công_việcDataSet.usersDataTable dataTable = new Quản_lý_công_việcDataSet.usersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4559,7 +4635,7 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Quản_lý_công_việcDataSet.userDataTable dataTable) {
+        public virtual int Update(Quản_lý_công_việcDataSet.usersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -4567,7 +4643,7 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(Quản_lý_công_việcDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "user");
+            return this.Adapter.Update(dataSet, "users");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4732,11 +4808,11 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         
         private boardTableAdapter _boardTableAdapter;
         
-        private listTableAdapter _listTableAdapter;
+        private listsTableAdapter _listsTableAdapter;
         
-        private taskTableAdapter _taskTableAdapter;
+        private tasksTableAdapter _tasksTableAdapter;
         
-        private userTableAdapter _userTableAdapter;
+        private usersTableAdapter _usersTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -4786,12 +4862,12 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public listTableAdapter listTableAdapter {
+        public listsTableAdapter listsTableAdapter {
             get {
-                return this._listTableAdapter;
+                return this._listsTableAdapter;
             }
             set {
-                this._listTableAdapter = value;
+                this._listsTableAdapter = value;
             }
         }
         
@@ -4800,12 +4876,12 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public taskTableAdapter taskTableAdapter {
+        public tasksTableAdapter tasksTableAdapter {
             get {
-                return this._taskTableAdapter;
+                return this._tasksTableAdapter;
             }
             set {
-                this._taskTableAdapter = value;
+                this._tasksTableAdapter = value;
             }
         }
         
@@ -4814,12 +4890,12 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public userTableAdapter userTableAdapter {
+        public usersTableAdapter usersTableAdapter {
             get {
-                return this._userTableAdapter;
+                return this._usersTableAdapter;
             }
             set {
-                this._userTableAdapter = value;
+                this._usersTableAdapter = value;
             }
         }
         
@@ -4850,17 +4926,17 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                             && (this._boardTableAdapter.Connection != null))) {
                     return this._boardTableAdapter.Connection;
                 }
-                if (((this._listTableAdapter != null) 
-                            && (this._listTableAdapter.Connection != null))) {
-                    return this._listTableAdapter.Connection;
+                if (((this._listsTableAdapter != null) 
+                            && (this._listsTableAdapter.Connection != null))) {
+                    return this._listsTableAdapter.Connection;
                 }
-                if (((this._taskTableAdapter != null) 
-                            && (this._taskTableAdapter.Connection != null))) {
-                    return this._taskTableAdapter.Connection;
+                if (((this._tasksTableAdapter != null) 
+                            && (this._tasksTableAdapter.Connection != null))) {
+                    return this._tasksTableAdapter.Connection;
                 }
-                if (((this._userTableAdapter != null) 
-                            && (this._userTableAdapter.Connection != null))) {
-                    return this._userTableAdapter.Connection;
+                if (((this._usersTableAdapter != null) 
+                            && (this._usersTableAdapter.Connection != null))) {
+                    return this._usersTableAdapter.Connection;
                 }
                 return null;
             }
@@ -4881,13 +4957,13 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                 if ((this._boardTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._listTableAdapter != null)) {
+                if ((this._listsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._taskTableAdapter != null)) {
+                if ((this._tasksTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._userTableAdapter != null)) {
+                if ((this._usersTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -4910,30 +4986,30 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._listTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.list.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._listsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.lists.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._listTableAdapter.Update(updatedRows));
+                    result = (result + this._listsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._taskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.task.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tasksTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tasks.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._taskTableAdapter.Update(updatedRows));
+                    result = (result + this._tasksTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._userTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.user.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._userTableAdapter.Update(updatedRows));
+                    result = (result + this._usersTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4964,27 +5040,27 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._listTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.list.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._listsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.lists.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._listTableAdapter.Update(addedRows));
+                    result = (result + this._listsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._taskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.task.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tasksTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tasks.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._taskTableAdapter.Update(addedRows));
+                    result = (result + this._tasksTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._userTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.user.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._userTableAdapter.Update(addedRows));
+                    result = (result + this._usersTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5014,27 +5090,27 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._userTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.user.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._usersTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._userTableAdapter.Update(deletedRows));
+                    result = (result + this._usersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._taskTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.task.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tasksTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tasks.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._taskTableAdapter.Update(deletedRows));
+                    result = (result + this._tasksTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._listTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.list.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._listsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.lists.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._listTableAdapter.Update(deletedRows));
+                    result = (result + this._listsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5095,18 +5171,18 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._listTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._listTableAdapter.Connection) == false))) {
+            if (((this._listsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._listsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._taskTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._taskTableAdapter.Connection) == false))) {
+            if (((this._tasksTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tasksTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._userTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._userTableAdapter.Connection) == false))) {
+            if (((this._usersTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._usersTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5160,31 +5236,31 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._boardTableAdapter.Adapter);
                     }
                 }
-                if ((this._listTableAdapter != null)) {
-                    revertConnections.Add(this._listTableAdapter, this._listTableAdapter.Connection);
-                    this._listTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._listTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._listTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._listTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._listTableAdapter.Adapter);
+                if ((this._listsTableAdapter != null)) {
+                    revertConnections.Add(this._listsTableAdapter, this._listsTableAdapter.Connection);
+                    this._listsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._listsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._listsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._listsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._listsTableAdapter.Adapter);
                     }
                 }
-                if ((this._taskTableAdapter != null)) {
-                    revertConnections.Add(this._taskTableAdapter, this._taskTableAdapter.Connection);
-                    this._taskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._taskTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._taskTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._taskTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._taskTableAdapter.Adapter);
+                if ((this._tasksTableAdapter != null)) {
+                    revertConnections.Add(this._tasksTableAdapter, this._tasksTableAdapter.Connection);
+                    this._tasksTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tasksTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tasksTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tasksTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tasksTableAdapter.Adapter);
                     }
                 }
-                if ((this._userTableAdapter != null)) {
-                    revertConnections.Add(this._userTableAdapter, this._userTableAdapter.Connection);
-                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._userTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._userTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._userTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._userTableAdapter.Adapter);
+                if ((this._usersTableAdapter != null)) {
+                    revertConnections.Add(this._usersTableAdapter, this._usersTableAdapter.Connection);
+                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._usersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._usersTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -5253,17 +5329,17 @@ SELECT id, username, password FROM [user] WHERE (id = @id)";
                     this._boardTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._boardTableAdapter]));
                     this._boardTableAdapter.Transaction = null;
                 }
-                if ((this._listTableAdapter != null)) {
-                    this._listTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._listTableAdapter]));
-                    this._listTableAdapter.Transaction = null;
+                if ((this._listsTableAdapter != null)) {
+                    this._listsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._listsTableAdapter]));
+                    this._listsTableAdapter.Transaction = null;
                 }
-                if ((this._taskTableAdapter != null)) {
-                    this._taskTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._taskTableAdapter]));
-                    this._taskTableAdapter.Transaction = null;
+                if ((this._tasksTableAdapter != null)) {
+                    this._tasksTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tasksTableAdapter]));
+                    this._tasksTableAdapter.Transaction = null;
                 }
-                if ((this._userTableAdapter != null)) {
-                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._userTableAdapter]));
-                    this._userTableAdapter.Transaction = null;
+                if ((this._usersTableAdapter != null)) {
+                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usersTableAdapter]));
+                    this._usersTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
