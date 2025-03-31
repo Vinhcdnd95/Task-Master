@@ -150,16 +150,16 @@ namespace Task_Master
 
             FlowLayoutPanel taskPanel = new FlowLayoutPanel()
             {
-                Location = new Point(5, 50), // Điều chỉnh vị trí
-                Width = 300, // Tăng chiều rộng của FlowLayoutPanel
-                Height = 750, // Tăng chiều cao của FlowLayoutPanel
+                Location = new Point(5, 50), 
+                Width = 300,
+                Height = 750, 
                 AutoScroll = true,
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
                 AllowDrop = true
             };
             taskPanel.DragEnter += TaskPanel_DragEnter;
-            taskPanel.DragOver += TaskPanel_DragOver; // Thêm sự kiện DragOver
+            taskPanel.DragOver += TaskPanel_DragOver; 
             taskPanel.DragDrop += TaskPanel_DragDrop;
             panel.Controls.Add(taskPanel);
 
@@ -254,7 +254,7 @@ namespace Task_Master
 
                 CheckBox isActiveCheckbox = new CheckBox()
                 {
-                    Text = "Active",
+                    Text = "Hoàn thành",
                     Location = new Point(0, 150),
                     Checked = true
                 };
@@ -384,7 +384,7 @@ namespace Task_Master
 
             CheckBox isActiveCheckbox = new CheckBox()
             {
-                Text = "Active",
+                Text = "Hoàn thành",
                 Location = new Point(10, 150),
                 Checked = isActived
             };
