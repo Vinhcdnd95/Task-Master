@@ -391,6 +391,18 @@ namespace Task_Master
                 DatabaseHelper.UpdateTask(taskId, taskName.Text, userComboBox.Text, isActiveCheckbox.Checked, deadline);
             };
 
+            PictureBox dragHandle = new PictureBox()
+            {
+                Size = new Size(30, 30),
+                Location = new Point(190, 5),
+                Image = null, // Thay bằng icon kéo thả của bạn
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.Hand
+            };
+
+            dragHandle.MouseDown += TaskContainer_MouseDown;
+
+
             Button deleteTaskButton = new Button()
             {
                 Text = "X",
@@ -426,6 +438,7 @@ namespace Task_Master
             taskContainer.Controls.Add(deadlinePicker);
             taskContainer.Controls.Add(isActiveCheckbox);
             taskContainer.Controls.Add(deleteTaskButton);
+            taskContainer.Controls.Add(dragHandle);
 
             return taskContainer;
         }
@@ -434,8 +447,16 @@ namespace Task_Master
         {
             if (e.Button == MouseButtons.Left)
             {
-                draggedTaskPanel = (Panel)sender;
-                draggedTaskPanel.DoDragDrop(draggedTaskPanel, DragDropEffects.Move);
+                PictureBox dragHandle = sender as PictureBox;
+                if (dragHandle != null)
+                {
+                    Panel taskPanel = dragHandle.Parent as Panel;
+                    if (taskPanel != null)
+                    {
+                        draggedTaskPanel = taskPanel;
+                        draggedTaskPanel.DoDragDrop(draggedTaskPanel, DragDropEffects.Move);
+                    }
+                }
             }
         }
 
