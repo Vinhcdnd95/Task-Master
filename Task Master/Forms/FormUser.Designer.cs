@@ -32,10 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quản_lý_công_việcDataSet = new Task_Master.Quản_lý_công_việcDataSet();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,19 +43,22 @@
             this.usersTableAdapter = new Task_Master.Quản_lý_công_việcDataSetTableAdapters.usersTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quản_lý_công_việcDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvUser
+            // dgvUsers
             // 
-            this.dgvUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvUser.AutoGenerateColumns = false;
-            this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvUsers.AutoGenerateColumns = false;
+            this.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvUsers.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -66,13 +66,13 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.usernameDataGridViewTextBoxColumn,
             this.passwordDataGridViewTextBoxColumn});
-            this.dgvUser.DataSource = this.usersBindingSource;
+            this.dgvUsers.DataSource = this.usersBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,9 +80,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvUser.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvUser.Location = new System.Drawing.Point(12, 28);
-            this.dgvUser.Name = "dgvUser";
+            this.dgvUsers.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUsers.Location = new System.Drawing.Point(12, 28);
+            this.dgvUsers.Name = "dgvUsers";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,33 +90,11 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUser.RowHeadersWidth = 51;
-            this.dgvUser.RowTemplate.Height = 24;
-            this.dgvUser.Size = new System.Drawing.Size(776, 179);
-            this.dgvUser.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Mã tài khoản";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "Tài khoản";
-            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn.HeaderText = "Mật khẩu";
-            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.dgvUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.RowTemplate.Height = 24;
+            this.dgvUsers.Size = new System.Drawing.Size(776, 179);
+            this.dgvUsers.TabIndex = 0;
             // 
             // usersBindingSource
             // 
@@ -194,6 +172,28 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Mật khẩu";
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -206,14 +206,14 @@
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.dgvUser);
+            this.Controls.Add(this.dgvUsers);
             this.MaximumSize = new System.Drawing.Size(818, 497);
             this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "FormUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUser";
             this.Load += new System.EventHandler(this.FormUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quản_lý_công_việcDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -223,7 +223,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDel;
