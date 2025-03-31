@@ -92,19 +92,22 @@ namespace Task_Master.Data
             return (result != null && result.Rows.Count > 0) ? Convert.ToInt32(result.Rows[0]["id"]) : -1;
         }
 
-        public static void UpdateTask(int taskId, string name, string description, bool isActived, DateTime deadline)
+        public static void UpdateTask(int taskId, string name, int userId, bool isActived, DateTime deadline)
         {
-            string query = "UPDATE tasks SET name = @name, description = @description, " +
-                           "is_actived = @isActived, deadline = @deadline, WHERE id = @taskId";
+            string query = "UPDATE tasks SET name = @name, user_id = @user_id, " +
+                           "is_actived = @isActived, deadline = @deadline WHERE id = @taskId";
+
             SqlParameter[] parameters = {
-                new SqlParameter("@taskId", taskId),
-                new SqlParameter("@name", name ?? (object)DBNull.Value),
-                new SqlParameter("@description", description ?? (object)DBNull.Value),
-                new SqlParameter("@isActived", isActived),
-                new SqlParameter("@deadline", deadline),
-            };
+        new SqlParameter("@taskId", taskId),
+        new SqlParameter("@name", name ?? (object)DBNull.Value),
+        new SqlParameter("@user_id", userId),
+        new SqlParameter("@isActived", isActived),
+        new SqlParameter("@deadline", deadline),
+    };
+
             ExecuteNonQuery(query, parameters);
         }
+
 
         public static void DeleteTask(int taskId)
         {

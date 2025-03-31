@@ -75,18 +75,9 @@ namespace Task_Master
             };
             addListButton.Click += AddListButton_Click;
             boardPanel.Controls.Add(addListButton);
-
-            addUserButton = new Button()
-            {
-                Text = "+ Thêm User",
-                Width = 150,
-                Height = 40,
-                Location = new Point(this.ClientSize.Width - 170, 10), // Góc trên cùng bên phải
-                Anchor = AnchorStyles.Top | AnchorStyles.Right // Cố định ở góc phải
-            };
-            addUserButton.Click += AddUserButton_Click;
-            this.Controls.Add(addUserButton);
-            addUserButton.BringToFront();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
 
         }
 
@@ -161,7 +152,7 @@ namespace Task_Master
             {
                 Location = new Point(5, 50), // Điều chỉnh vị trí
                 Width = 300, // Tăng chiều rộng của FlowLayoutPanel
-                Height = 600, // Tăng chiều cao của FlowLayoutPanel
+                Height = 750, // Tăng chiều cao của FlowLayoutPanel
                 AutoScroll = true,
                 FlowDirection = FlowDirection.TopDown,
                 WrapContents = false,
@@ -206,7 +197,7 @@ namespace Task_Master
                 Panel taskContainer = new Panel()
                 {
                     Width = 220, // Tăng chiều rộng của taskContainer
-                    Height = 220, // Tăng chiều cao để chứa thêm DateTimePicker và nút
+                    Height = 250, // Tăng chiều cao để chứa thêm DateTimePicker và nút
                     Margin = new Padding(5),
                     Tag = -1, // Chưa có trong DB
                     BorderStyle = BorderStyle.FixedSingle // Thêm khung viền cho task
@@ -222,10 +213,14 @@ namespace Task_Master
                 TextBox taskName = new TextBox()
                 {
                     Text = "",
-                    Width = 200, // Tăng chiều rộng của TextBox
+                    Width = 200,
+                    Height = 30, 
                     Location = new Point(0, 20),
-                    MaxLength = 50
+                    MaxLength = 50000,
+                    Multiline = true, 
+                    ScrollBars = ScrollBars.Vertical 
                 };
+
 
                 Label taskDescriptionLabel = new Label()
                 {
@@ -289,7 +284,7 @@ namespace Task_Master
                         // Tạo task mới và thêm vào taskPanel
                         Panel newTaskContainer = CreateTaskPanel(taskId, taskName.Text, userComboBox.Text, isActiveCheckbox.Checked, deadlinePicker.Value);
                         taskPanel.Controls.Add(newTaskContainer);
-
+                        taskPanel.Controls.Remove(taskContainer);
                         // Xóa nội dung trong TextBox
                         taskName.Text = "";
                         userComboBox.Text = "";
@@ -317,7 +312,7 @@ namespace Task_Master
             Panel taskContainer = new Panel()
             {
                 Width = 220, // Tăng chiều rộng
-                Height = 220, // Tăng chiều cao để bố cục đẹp hơn
+                Height = 250, // Tăng chiều cao để bố cục đẹp hơn
                 Margin = new Padding(10),
                 Padding = new Padding(5),
                 Tag = taskId,
@@ -337,9 +332,12 @@ namespace Task_Master
             {
                 Text = taskNameText,
                 Width = 200,
+                Height = 30,
                 Location = new Point(10, 30),
-                MaxLength = 50,
-                ReadOnly = true
+                MaxLength = 50000,
+                ReadOnly = true,
+                Multiline = true,
+                ScrollBars = ScrollBars.Vertical
             };
 
             Label taskDescriptionLabel = new Label()
@@ -347,14 +345,16 @@ namespace Task_Master
                 Text = "Người thực hiện:",
                 Location = new Point(10, 60),
                 Width = 100,
-                Height = 20
+                Height = 20,
+                Enabled = false
             };
 
             ComboBox userComboBox = new ComboBox()
             {
                 Width = 200,
                 Location = new Point(10, 80),
-                DropDownStyle = ComboBoxStyle.DropDownList
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Enabled = false,
             };
             LoadUsers(userComboBox); // Load danh sách người dùng vào ComboBox
 
@@ -390,8 +390,22 @@ namespace Task_Master
             };
             isActiveCheckbox.CheckedChanged += (sender, e) =>
             {
-                DatabaseHelper.UpdateTask(taskId, taskName.Text, userComboBox.Text, isActiveCheckbox.Checked, deadline);
+                bool isChecked = !isActiveCheckbox.Checked;
+
+                DatabaseHelper.UpdateTask(taskId, taskName.Text, (int)userComboBox.SelectedValue, isChecked, deadline);
+
+                foreach (Control ctrl in taskContainer.Controls)
+                {
+                    if (ctrl is Label || ctrl is TextBox)
+                    {
+                        var currentFont = ctrl.Font;
+                        ctrl.Font = new Font(currentFont, isChecked ? FontStyle.Regular : FontStyle.Strikeout);
+                    }
+                }
+
+                taskContainer.BackColor = isChecked ? Color.White : Color.LightGray;
             };
+
 
             PictureBox dragHandle = new PictureBox()
             {
@@ -431,6 +445,61 @@ namespace Task_Master
                     ((FlowLayoutPanel)taskContainer.Parent).Controls.Remove(taskContainer);
                 }
             };
+
+            bool isEditMode = false;
+
+            Button editTaskButton = new Button()
+            {
+                Text = "Sửa",
+                Width = 60,
+                Height = 30,
+                Location = new Point(10, 190),
+                BackColor = Color.Orange,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
+            };
+
+            editTaskButton.Click += (senderEdit, eEdit) =>
+            {
+                if (!isEditMode)
+                {
+                    // Bật chế độ sửa
+                    taskName.ReadOnly = false;
+                    userComboBox.Enabled = true;
+                    deadlinePicker.Enabled = true;
+
+                    editTaskButton.Text = "Lưu";
+                    editTaskButton.BackColor = Color.Green;
+                    isEditMode = true;
+                }
+                else
+                {
+                    // Lưu lại
+                    int userId = Convert.ToInt32(userComboBox.SelectedValue);
+
+                    DatabaseHelper.UpdateTask(
+                        taskId,
+                        taskName.Text,
+                        userId,
+                        isActiveCheckbox.Checked,
+                        deadlinePicker.Value
+                    );
+
+                    // Disable chỉnh sửa sau khi lưu
+                    taskName.ReadOnly = true;
+                    userComboBox.Enabled = false;
+                    deadlinePicker.Enabled = false;
+
+                    editTaskButton.Text = "Sửa";
+                    editTaskButton.BackColor = Color.Orange;
+                    isEditMode = false;
+
+                    MessageBox.Show("Đã cập nhật Task!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            };
+
+            taskContainer.Controls.Add(editTaskButton);
+
 
             taskContainer.Controls.Add(taskNameLabel);
             taskContainer.Controls.Add(taskName);
@@ -554,12 +623,25 @@ namespace Task_Master
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa danh sách này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                // Kiểm tra xem có task nào trong list không
+                string countQuery = "SELECT COUNT(*) FROM tasks WHERE list_id = @listId";
+                SqlParameter[] countParams = { new SqlParameter("@listId", listId) };
+                int taskCount = DatabaseHelper.ExecuteScalar(countQuery, countParams);
+
+                if (taskCount > 0)
+                {
+                    MessageBox.Show("Danh sách này vẫn còn Task, không thể xóa!", "Không thể xóa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Nếu không có task thì mới cho xóa
                 string deleteQuery = "DELETE FROM lists WHERE id = @id";
                 SqlParameter[] deleteParams = { new SqlParameter("@id", listId) };
                 if (DatabaseHelper.ExecuteNonQuery(deleteQuery, deleteParams) > 0)
                 {
                     boardPanel.Controls.Remove(panel);
                 }
+
             }
         }
 
