@@ -73,6 +73,8 @@ namespace Task_Master
                 Width = 150,
                 Height = 40,
             };
+            addListButton.Click += AddListButton_Click;
+            boardPanel.Controls.Add(addListButton);
 
             addUserButton = new Button()
             {
